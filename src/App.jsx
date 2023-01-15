@@ -1,6 +1,3 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { NavBar, Footer, SideBar } from "./components/shared/index";
@@ -13,14 +10,15 @@ import {
   CheckOut,
   Cart,
 } from "./pages/index";
+import { NavContext } from "./context/NavContext";
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <NavBar />
-      <SideBar />
+    <div className="">
       <BrowserRouter>
+        <NavContext>
+          <NavBar />
+          <SideBar />
+        </NavContext>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -31,9 +29,9 @@ function App() {
           <Route path="checkout" element={<CheckOut />} />
           <Route path="*" element={<Error />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
-      <Footer />
-    </>
+    </div>
   );
 }
 
