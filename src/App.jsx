@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { NavBar, Footer, SideBar } from "./components/shared/index";
+import { ProductsContext } from "./context/ProductsContect";
 import {
   Home,
   About,
@@ -13,12 +14,15 @@ import {
 import { NavContext } from "./context/NavContext";
 function App() {
   return (
-    <div className="">
+    <ProductsContext>
       <BrowserRouter>
-        <NavContext>
-          <NavBar />
-          <SideBar />
-        </NavContext>
+        <div className="p-relative">
+          <NavContext>
+            <NavBar />
+            <SideBar />
+          </NavContext>
+        </div>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -31,7 +35,7 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-    </div>
+    </ProductsContext>
   );
 }
 

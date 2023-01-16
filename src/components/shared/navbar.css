@@ -1,8 +1,14 @@
 .nav {
-  background-color: var(--nav-bg-clr-light);
   /* text-align: center; */
   width: 100%;
   position: fixed;
+  z-index: 1;
+}
+.nav-bg-1 {
+  background-color: var(--nav-bg-clr-t);
+}
+.nav-bg-2 {
+  background-color: var(--nav-bg-clr-light);
 }
 .nav-container {
   display: flex;
@@ -14,8 +20,8 @@
 }
 
 .nav-btns {
-  display: block;
-  background: chartreuse;
+  /* display: block;
+  background: chartreuse; */
 }
 .sidebar-btn {
   font-size: 1.75rem;

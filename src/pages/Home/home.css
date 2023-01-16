@@ -1,23 +1,132 @@
-section {
-  height: 100vh;
-  text-align: center;
-  scroll-snap-type: st;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,400&display=swap");
+/****************************INTRO SEC****************************************************/
+.intro-sec {
+  background-color: #fff;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
-.sec-1 {
-  background-color: #ddd3d3;
+.intro-wrapper {
+  overflow: hidden !important;
 }
+.intro-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  gap: 1rem;
+}
+.intro-title-wrapper h1 {
+  font-family: "Poppins", sans-serif;
+  color: var(--txt-clr-1);
+  text-transform: capitalize;
+  animation: txt-slide-in ease-in-out;
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+}
+
+.intro-title-wrapper h1 + p,
+.shop-btn {
+  animation: txt-slide-in ease-in-out;
+  animation-duration: 0.6s;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+.intro-title-wrapper h1 > span {
+  display: block;
+}
+.intro-title-wrapper h1 span > span {
+  color: var(--txt-clr-2);
+}
+
+.shop-btn {
+  width: 40%;
+  background-color: var(--txt-clr-2);
+  animation-delay: 0.6s;
+}
+
+/*right- sec*/
+.intro-sec-img-wrapper {
+  width: 50%;
+  overflow: hidden !important;
+}
+
+.intro-sec-img-wrapper > img {
+  overflow: hidden !important;
+
+  width: 100%;
+  object-fit: contain;
+  vertical-align: middle;
+  /* position: relative; */
+  animation: animate-img ease-in-out;
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+  animation-delay: 0.2s;
+}
+.bg-circle {
+  content: "";
+  position: absolute;
+  top: -35%;
+  right: -10%;
+  width: 35rem;
+  object-fit: contain;
+  height: 35rem;
+  color: var(--txt-clr-2);
+  background-color: var(--txt-clr-2);
+  border-radius: 50%;
+  animation: animate-circle ease-in-out;
+  animation-duration: 0.5s;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+/*ANIMATIONS*/
+@keyframes animate-img {
+  from {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes animate-circle {
+  from {
+    transform: translateY(-40%) translateX(20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes txt-slide-in {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/*==============================================END OF INTRO SEC=================================================================*/
 .sec-2 {
+  height: 100vh;
   background-color: #f2f2f2;
 }
-.sec-3 {
+.services-sec {
+  height: 100vh;
+
   background-color: #d8b8b8;
 }
 .sec-4 {
+  height: 100vh;
+
   background-color: #f3cfcf;
 }
 .sec-5 {
+  height: 100vh;
   background-color: #f5f5f5;
 }

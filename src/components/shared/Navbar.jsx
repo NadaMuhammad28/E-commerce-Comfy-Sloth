@@ -6,14 +6,22 @@ import { links } from "../../utils/constants";
 import logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
 import NavBtns from "./cartbuttons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavSideContext } from "../../context/NavContext";
 console.log(links);
 const NavBar = () => {
+  //mobile to desktop qurey
   const { togglesideBar, setToggleSideBar, toggleBar } = NavSideContext();
 
+  //nav bg changin functionality
+  const [scrolled, setScrolled] = useState(false);
+  const navClass = scrolled ? "nav nav-bg-2" : "nav nav-bg-1";
+  const handleScroll = () => {
+    window.scrollY > 90 ? setScrolled(true) : setScrolled(false);
+  };
+  window.addEventListener("scroll", handleScroll);
   return (
-    <nav className="nav">
+    <nav className={navClass}>
       <div className="container">
         <div className="nav-container">
           <Link className="logo" to="/">
