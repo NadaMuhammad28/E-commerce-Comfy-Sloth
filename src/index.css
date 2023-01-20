@@ -1,4 +1,8 @@
-* {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,400&display=swap");
+
+*,
+::after,
+::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,8 +20,11 @@
   --transition-4: all ease 0.3s;
   --clr-grey-8: #bcccdc;
   --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --section-padding: 4% 0;
 }
 html {
+  height: 100%;
   scroll-behavior: smooth;
 }
 body {
@@ -50,6 +57,9 @@ li {
 h1 {
   font-size: 4rem;
 }
+h2 {
+  font-size: 2.5rem;
+}
 button {
   background-color: transparent;
   cursor: pointer;
@@ -71,9 +81,6 @@ button {
 .side-bar > header > a > img {
   width: 63%;
 }
-.p-relative {
-  position: relative;
-}
 
 p {
   width: 70%;
@@ -93,6 +100,118 @@ p {
   text-transform: uppercase;
   transition: all 0.3s linear;
 }
+/*====================================ABOUT===========================================================================================*/
+.about-section {
+  height: 100vh;
+}
+.about-header {
+  margin: 0;
+  background-image: url(assets/aboutBG.jpg);
+  min-height: 60vh;
+  height: 50vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* position: relative; */
+  text-align: center;
+  width: 100vw;
+  background-size: cover;
+}
+.abt-overlay {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  background-size: cover;
+}
+.about-header h2 {
+  font-family: "Poppins", sans-serif;
+  animation: txt-slide-in ease-in-out;
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+  color: rgb(230, 230, 230);
+  text-transform: uppercase;
+  font-size: 4rem !important;
+}
+
+.title-header-underline,
+.underline {
+  content: "";
+  background-color: var(--txt-clr-2);
+  color: var(--txt-clr-2);
+  animation-name: underline-expand;
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+  animation-delay: 0.1s;
+  text-align: center;
+  border-color: var(--txt-clr-2);
+}
+
+.about-content {
+  padding: var(--section-padding);
+}
+.our-story {
+  /* align-items: center; */
+  display: flex;
+  gap: 4rem;
+  width: 100%;
+}
+
+.our-story > img {
+  max-width: 100%;
+  height: 40rem;
+  object-fit: cover;
+  border-radius: var(--radius);
+  /* height: 40rem; */
+}
+.abt-story-content {
+  width: 100%;
+}
+.underline {
+  margin: 0.2% 0;
+}
+.abt-story-content p {
+  line-height: 2;
+  margin-top: 2em;
+  width: 90%;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+@media (max-width: 960px) {
+  .our-story img {
+    height: 25rem;
+  }
+}
+@media (max-width: 855px) {
+  .our-story {
+    flex-direction: column-reverse;
+  }
+  .our-story img {
+    justify-self: center;
+    align-self: center;
+    height: auto;
+  }
+}
+@media (max-width: 364px) {
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  .about-header h2 {
+    font-size: 3rem;
+  }
+}
+/*=====================================ENDOF ABOUT==========================================================================================*/
+/*=====================================FOOTER==========================================================================================*/
+footer {
+  width: 100%;
+  background-color: #222;
+  padding: 2%;
+}
+/*=====================================ENDOF FOOTER==========================================================================================*/
+
 /***********************************************************************************************************************/
 /*SPINNER*/
 @keyframes spinner {
@@ -111,3 +230,28 @@ p {
   border-top-color: var(--clr-primary-5);
   animation: spinner 0.6s linear infinite;
 }
+/*====================================================================================================================================*/
+/*=====================================================================================================================================*/
+/*=====================================ANIMATIONS==========================================================================================*/
+/*for a text to have a y animation/=*/
+
+@keyframes txt-slide-in {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes underline-expand {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 6em;
+  }
+}
+/*=====================================ENDOF FOOTER==========================================================================================*/
+/*=====================================ENDOF FOOTER==========================================================================================*/

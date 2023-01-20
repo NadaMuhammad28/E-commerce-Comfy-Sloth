@@ -14,28 +14,27 @@ import {
 import { NavContext } from "./context/NavContext";
 function App() {
   return (
-    <ProductsContext>
+    <div className="app">
       <BrowserRouter>
-        <div className="p-relative">
-          <NavContext>
-            <NavBar />
-            <SideBar />
-          </NavContext>
-        </div>
+        <NavContext>
+          <NavBar />
+          <SideBar />
+        </NavContext>
+        <ProductsContext>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<SingleProduct />} />
+            <Route path="cart" element={<Cart />} />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<SingleProduct />} />
-          <Route path="cart" element={<Cart />} />
-
-          <Route path="checkout" element={<CheckOut />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
+            <Route path="checkout" element={<CheckOut />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </ProductsContext>
         <Footer />
       </BrowserRouter>
-    </ProductsContext>
+    </div>
   );
 }
 

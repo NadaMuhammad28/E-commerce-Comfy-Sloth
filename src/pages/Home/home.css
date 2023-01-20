@@ -5,11 +5,11 @@
   position: relative;
   display: flex;
   align-items: center;
-  overflow: hidden;
-}
-.intro-wrapper {
   overflow: hidden !important;
 }
+/* .intro-wrapper {
+  overflow: hidden !important;
+} */
 .intro-title-wrapper {
   display: flex;
   flex-direction: column;
@@ -66,11 +66,11 @@
 .bg-circle {
   content: "";
   position: absolute;
-  top: -35%;
-  right: -10%;
-  width: 35rem;
+  top: -38%;
+  right: 0%;
+  width: 45rem;
   object-fit: contain;
-  height: 35rem;
+  height: 45rem;
   color: var(--txt-clr-2);
   background-color: var(--txt-clr-2);
   border-radius: 50%;
@@ -78,6 +78,7 @@
   animation-duration: 0.5s;
   animation-delay: 0.3s;
   animation-fill-mode: both;
+  overflow: clip;
 }
 
 /*ANIMATIONS*/
@@ -101,16 +102,6 @@
   }
 }
 
-@keyframes txt-slide-in {
-  from {
-    transform: translateY(-50%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 /*==============================================END OF INTRO SEC=================================================================*/
 .sec-2 {
   height: 100vh;
