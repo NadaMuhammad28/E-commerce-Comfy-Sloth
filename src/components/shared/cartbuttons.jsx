@@ -1,8 +1,7 @@
 const NavBtns = () => {
   return (
     <div className="nav-btns">
-      <h2>cart</h2>
-      <h2>login</h2>
+      <h6>cart</h6>
     </div>
   );
 };

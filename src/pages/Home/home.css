@@ -103,10 +103,7 @@
 }
 
 /*==============================================END OF INTRO SEC=================================================================*/
-.sec-2 {
-  height: 100vh;
-  background-color: #f2f2f2;
-}
+
 .services-sec {
   height: 100vh;
 
@@ -121,3 +118,89 @@
   height: 100vh;
   background-color: #f5f5f5;
 }
+/*=======================================================================================
+------------------------------FEATURED PRODUCTS SECTION-----------------------------------------
+========================================================================================*/
+.featured-products-section {
+  height: 100vh;
+  padding: var(--section-padding);
+  background-color: var(--section-bg-2);
+}
+/*=======================================================================================
+------------------------------END OF FEATURED PRODUCTS SECTION-----------------------------------------
+========================================================================================*/
+
+/*=======================================================================================
+------------------------------CONTACT SECTION-----------------------------------------
+========================================================================================*/
+
+.contact-section {
+  padding: var(--section-padding);
+}
+.contact-section h3 {
+  color: var(--txt-clr-1);
+}
+.contact-section-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.contact-form-wrapper {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact-form-wrapper p {
+  flex-basis: 40%;
+  /* width: 50%; */
+}
+.contact-form-wrapper form {
+  border: var(--border-blac-thin);
+  border-radius: var(--radius);
+  display: flex;
+  flex-basis: 50%;
+  height: auto;
+}
+
+.contact-form-wrapper form > input {
+  /* height: 100%; */
+  width: 80%;
+  border: none;
+  border-right: var(--border-blac-thin);
+  text-transform: capitalize;
+  padding: 0.4rem 1rem;
+  outline: none;
+}
+
+.contact-form-wrapper span {
+  left: 0;
+  bottom: 0;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+.contact-form-wrapper form button {
+  text-align: center;
+  background-color: var(--txt-clr-2);
+  flex: 1;
+  color: var(--nav-bg-clr-light);
+}
+
+.contact-form-wrapper form button:hover {
+  background-color: var(--txt-clr-2-dark);
+  font-weight: 500;
+}
+
+@media (max-width: 910px) {
+  .contact-form-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+/*=======================================================================================
+------------------------------END OF CONTACT SECTION-----------------------------------------
+========================================================================================*/

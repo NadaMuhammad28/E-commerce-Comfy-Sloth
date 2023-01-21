@@ -9,19 +9,25 @@
 }
 
 :root {
+  --section-bg-1: #fff;
+  --section-bg-2: #f1f1f1;
   --nav-bg-clr-t: transparent;
 
   --nav-bg-clr-light: #fff;
+
   --txt-clr-1: #102a42;
   --txt-clr-2: #ab7a5f;
+  --txt-clr-2-dark: #9b6e57;
   --txt-clr-3: #eaded7;
   --txt-clr-4: #617d98;
+  --txt-clr-black: #222;
   --clr-primary-5: hsl(22, 31%, 52%);
   --transition-4: all ease 0.3s;
   --clr-grey-8: #bcccdc;
   --spacing: 0.1rem;
   --radius: 0.25rem;
   --section-padding: 4% 0;
+  --border-blac-thin: 0.1em solid var(--txt-clr-black);
 }
 html {
   height: 100%;
@@ -60,6 +66,9 @@ h1 {
 h2 {
   font-size: 2.5rem;
 }
+h3 {
+  font-size: 2rem;
+}
 button {
   background-color: transparent;
   cursor: pointer;
@@ -83,8 +92,7 @@ button {
 }
 
 p {
-  width: 70%;
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: var(--txt-clr-4);
 }
 
@@ -209,7 +217,14 @@ footer {
   width: 100%;
   background-color: #222;
   padding: 2%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  text-transform: capitalize;
+  color: var(--txt-clr-3);
+  font-weight: 600;
 }
+
 /*=====================================ENDOF FOOTER==========================================================================================*/
 
 /***********************************************************************************************************************/
@@ -255,3 +270,16 @@ footer {
 }
 /*=====================================ENDOF FOOTER==========================================================================================*/
 /*=====================================ENDOF FOOTER==========================================================================================*/
+/*GLOBAL MEDIA QUERIES**/
+/*h3*/
+@media (max-width: 630px) {
+  h3 {
+    font-size: 1.75em;
+  }
+}
+
+@media (max-width: 550px) {
+  h3 {
+    font-size: 1.3em;
+  }
+}

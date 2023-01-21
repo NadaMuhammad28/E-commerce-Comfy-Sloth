@@ -1,0 +1,23 @@
+.services-sec {
+  height: 100vh;
+  width: 100vw;
+}
+.services-sec-center {
+  display: flex;
+  align-items: center;
+}
+
+.swiper {
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}

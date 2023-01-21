@@ -1,10 +1,14 @@
-import FeaturesSlider from "../../components/feturesSlider/feturesSlider";
-
+import ServicesSlider from "../../components/feturesSlider/ServicesSlider";
+import "../../components/feturesSlider/slider.css";
 const Services = () => {
   return (
     <section className="services-sec">
-      Our servieces
-      <FeaturesSlider />
+      <div className="container">
+        <div className="services-sec-center">
+          Our servieces
+          <ServicesSlider />
+        </div>
+      </div>
     </section>
   );
 };
