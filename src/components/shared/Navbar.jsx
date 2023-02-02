@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import NavBtns from "./cartbuttons";
 import { useEffect, useState } from "react";
 import { NavSideContext } from "../../context/NavContext";
-console.log(links);
 const NavBar = () => {
   //mobile to desktop qurey
   const { togglesideBar, setToggleSideBar, toggleBar } = NavSideContext();

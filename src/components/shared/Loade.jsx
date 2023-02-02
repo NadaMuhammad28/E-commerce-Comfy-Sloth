@@ -1,6 +1,6 @@
 const Loader = () => {
   return (
-    <div className="section-center">
+    <div className="section-center loader">
       <div className="loading"></div>
     </div>
   );

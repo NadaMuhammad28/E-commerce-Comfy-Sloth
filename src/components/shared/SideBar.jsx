@@ -7,7 +7,6 @@ import "./sidebar.css";
 const SideBar = () => {
   const { togglesideBar, toggleBar, setToggleSideBar } = NavSideContext();
 
-  console.log(togglesideBar);
   let barClass = togglesideBar
     ? "side-bar slide-in"
     : "side-bar translate-away";
