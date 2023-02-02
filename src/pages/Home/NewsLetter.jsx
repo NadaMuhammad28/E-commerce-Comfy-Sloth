@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { validate } from "react-email-validator";
-
+import { BiErrorCircle } from "react-icons/bi";
 import React from "react";
 import { useForm, ValidationError } from "@formspree/react";
 const NewsLetter = () => {
   const [state, handleSubmit] = useForm("xyyazlar");
 
   // if (state.succeeded) setValidatorMsg("thanks for joining!");
-  const [validatorMsg, setValidatorMsg] = useState("");
+  const [validatorMsg, setValidatorMsg] = useState(null);
   const handlevalidation = (e) => {
     e.preventDefault();
     const isValid = validate(e.target[0].value);
-    isValid ? setValidatorMsg("") : setValidatorMsg("invalid email");
+    isValid ? setValidatorMsg(null) : setValidatorMsg("invalid email");
     if (isValid) return handleSubmit(e);
   };
   return (

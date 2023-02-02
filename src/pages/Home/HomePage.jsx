@@ -2,6 +2,7 @@ import Services from "./Services";
 import "./home.css";
 import Intro from "./Intro";
 import NewsLetter from "./NewsLetter";
+import React from "react";
 import FeaturedProducts from "./featuredProducts";
 const Home = () => {
   return (
@@ -10,9 +11,6 @@ const Home = () => {
       <FeaturedProducts />
       {/* <Services /> */}
       <NewsLetter />
-
-      <section className="sec-4"></section>
-      <section className="sec-5"></section>
     </>
   );
 };
