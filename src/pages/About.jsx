@@ -1,8 +1,14 @@
 import about from "../assets/hero-bcg.jpeg";
+import bg from "../assets/aboutBG.jpg";
+import Loader from "../components/shared/Loade";
 const About = () => {
+  if (!bg) return <Loader />;
   return (
-    <section className="about-sec">
-      <header className="about-header">
+    <main className="about-sec">
+      <header
+        className="about-header"
+        style={{ backgroundImage: `url(${bg})` }}
+      >
         <div className="abt-overlay">
           <h2>About us</h2>
           <hr className="title-header-underline" />
@@ -11,7 +17,7 @@ const About = () => {
       <article className="about-content">
         <div className="container">
           <div className="our-story">
-            <img src={about} />
+            <img src={about} alt="" />
 
             <article className="abt-story-content">
               <div className="about-sec2-title">
@@ -35,7 +41,7 @@ const About = () => {
           </div>
         </div>
       </article>
-    </section>
+    </main>
   );
 };
 
