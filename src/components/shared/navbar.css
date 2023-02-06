@@ -23,6 +23,12 @@
 .nav-btns {
   /* display: block;
   background: chartreuse; */
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  flex-basis: 10%;
+  gap: 10px;
+  /* position: relative; */
 }
 .sidebar-btn {
   font-size: 1.75rem;
@@ -48,7 +54,47 @@
   .nav-btns {
     display: none;
   }
+
   .sidebar-btn {
     display: block;
   }
+}
+/***************************************/
+.nav-btns svg {
+  vertical-align: middle;
+}
+.acc-btn {
+  position: relative;
+}
+.auth-options-wrapper {
+  position: absolute;
+  /* width: 10%; */
+  bottom: -80%;
+
+  right: 2%;
+  padding: 0.8%;
+  display: none;
+  -webkit-box-shadow: -1px 3px 6px 0px rgb(0 0 0 / 55%);
+  -moz-box-shadow: -1px 3px 6px 0px rgba(0, 0, 0, 0.55);
+  box-shadow: -1px 3px 6px 0px rgb(0 0 0 / 55%);
+  background-color: #fff;
+  border-radius: 5px;
+}
+.auth-options-wrapper::before {
+  content: "";
+  position: absolute;
+  border-radius: 1px;
+  top: -5px;
+  left: 8%;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  transform: rotate(45deg);
+}
+.auth-options-wrapper li {
+  width: 100%;
+}
+
+.auth-options-wrapper-clicked {
+  display: block;
 }

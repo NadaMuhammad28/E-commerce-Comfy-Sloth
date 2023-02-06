@@ -135,7 +135,9 @@ const Cart = () => {
                 <h5> {formatPrice(shipping + totalPrice)}</h5>
               </div>
 
-              <Link className="btn shop-btn checkout-btn">to checkout</Link>
+              <Link to="/checkout" className="btn shop-btn checkout-btn">
+                to checkout
+              </Link>
             </aside>
           </Grid2>
         </Grid2>

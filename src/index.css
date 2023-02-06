@@ -320,3 +320,12 @@ footer {
     font-size: 1.3em;
   }
 }
+
+/********************************************PRIVATE ROUTE******************************************/
+.private-redirect {
+  background-color: #f7f7f7;
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}

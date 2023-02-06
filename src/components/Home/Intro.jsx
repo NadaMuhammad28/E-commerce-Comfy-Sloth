@@ -25,7 +25,7 @@ const Intro = () => {
             {/*  */}
             <Grid2 item xs={6} md={6}>
               <div className="intro-sec-img-wrapper">
-                <img src={introbg} />
+                {/* <img src={introbg} /> */}
               </div>
             </Grid2>
           </Grid2>

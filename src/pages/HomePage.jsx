@@ -3,12 +3,19 @@ import "./home.css";
 import Intro from "../components/Home/Intro";
 import NewsLetter from "../components/Home/NewsLetter";
 import React from "react";
-import FeaturedProducts from "../components/Home/featuredProducts";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+// import Featured from "../components/Home/featuredProducts";
 const Home = () => {
+  useEffect(() => {
+    AOS.init({ duration: 800 });
+  }, []);
   return (
     <>
       <Intro />
-      <FeaturedProducts />
+      {/* <Temp /> */}
+      {/* <Featured /> */}
       <Services />
       <NewsLetter />
     </>

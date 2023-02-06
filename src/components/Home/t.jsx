@@ -1,24 +1,15 @@
-import { useProductsContext } from "../../context/ProductsContect";
-import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import Carousel from "react-elastic-carousel";
 import Loader from "../shared/Loade";
+import { useProductsContext } from "../../context/ProductsContect";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.min.css";
+import "owl.carousel/dist/assets/owl.theme.default.min.css";
 
-import { useEffect, useState } from "react";
-const FeaturedProducts = () => {
+const Temp = () => {
   const { feturedProducts: products, isProductsLoading: Loading } =
     useProductsContext();
-  const carouselRef = useRef(null);
-
-  const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 2 },
-    { width: 768, itemsToShow: 3 },
-    { width: 1200, itemsToShow: 3 },
-  ];
-  console.log(products);
   return (
     <section className="featured-products-section sec-wrapper">
       <div className="container">
@@ -49,14 +40,8 @@ const FeaturedProducts = () => {
 
           <div className="featured-products-slider-wrapper">
             {products.length !== 0 ? (
-              <Carousel
-                ref={carouselRef}
-                breakPoints={breakPoints}
-                // enableAutoPlay
-                // autoPlaySpeed={500}
-                disableArrowsOnEnd={false}
-              >
-                {products &&
+              <OwlCarousel className="owl-theme" loop margin={10} nav>
+                {/* {products &&
                   products.map((product) => {
                     return (
                       <Link>
@@ -70,8 +55,12 @@ const FeaturedProducts = () => {
                         </article>
                       </Link>
                     );
-                  })}
-              </Carousel>
+                  })} */}
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+              </OwlCarousel>
             ) : (
               <Loader />
             )}
@@ -83,4 +72,5 @@ const FeaturedProducts = () => {
     </section>
   );
 };
-export default FeaturedProducts;
+
+export default Temp;

@@ -1,11 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 const USerCon = React.createContext();
 const UserContext = ({ children }) => {
   const { logout, user, isAuthenticated, isLoading, loginWithRedirect } =
     useAuth0();
   const [myUSer, setMyUSer] = useState(null);
-  console.log(("loding", isLoading));
+
+  useEffect(() => {
+    if (isAuthenticated) setMyUSer(user);
+    else {
+      setMyUSer(false);
+    }
+  }, [user]);
+  console.log(user);
   return (
     <USerCon.Provider
       value={{

@@ -119,8 +119,10 @@
 
 .services-sec {
   /* height: 100vh; */
-  background-color: chocolate;
+  background-color: rgb(146, 108, 80);
+  width: 100%;
   padding: var(--section-padding);
+  overflow: hidden;
 }
 .serv-sec-wrapper {
   height: 100%;
@@ -135,6 +137,7 @@
   justify-content: center;
   align-items: center;
   padding: 4% 0;
+  overflow: hidden;
 }
 
 .serv-card {
@@ -174,30 +177,30 @@
 ------------------------------FEATURED PRODUCTS SECTION-----------------------------------------
 ========================================================================================*/
 .featured-products-section {
-  height: 115vh;
+  /* height: 100vh; */
   padding: var(--section-padding);
   background-color: var(--section-bg-2);
+  overflow: hidden;
 }
 .featured-products-wrapper {
-  padding-top: var(--translationy);
+  /* padding-top: var(--translationy); */
   width: 100%;
   height: 100%;
   display: flex;
   gap: 4rem;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
 .featured-products-slider-wrapper {
   display: flex;
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   align-items: center;
   justify-content: center;
   position: relative;
   text-align: center;
-  height: 100%;
+  /* height: 30rem; */
 }
 .active-slide,
 .last-slide,
@@ -205,19 +208,31 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  /* width: 100%; */
   vertical-align: middle;
   height: 100%;
-  opacity: 0;
+  /* opacity: 0; */
   transition: all 0.4s linear;
 }
+/* .featured-products-slider-wrapper article {
+  padding: 2%;
+  background-color: chartreuse;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+.featured-product-card {
+  width: 30rem;
+}
 .featured-products-slider-wrapper article img {
-  height: 20rem;
+  height: 225px;
 }
 
 .active-slide {
   opacity: 1 !important;
-  transform: translateX(0);
+  transform: translateX(0%);
 }
 .next-slide {
   opacity: 0;
@@ -272,22 +287,23 @@
 }
 
 .contact-form-wrapper {
-  display: flex;
+  /* display: flex; */
   width: 100%;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  /* flex-wrap: wrap;
+  justify-content: space-between; */
 }
 
 .contact-form-wrapper p {
-  flex-basis: 40%;
+  /* flex-basis: 40%; */
   /* width: 50%; */
 }
 .contact-form-wrapper form {
   border: var(--border-blac-thin);
   border-radius: var(--radius);
   display: flex;
-  flex-basis: 50%;
+  /* flex-basis: 50%; */
   height: auto;
+  width: 100%;
 }
 
 .contact-form-wrapper form > input {
@@ -319,12 +335,12 @@
   font-weight: 500;
 }
 
-@media (max-width: 910px) {
+/* @media (max-width: 910px) {
   .contact-form-wrapper {
     flex-direction: column;
     gap: 2rem;
-  }
-}
+  } */
+
 /*=======================================================================================
 ------------------------------END OF CONTACT SECTION-----------------------------------------
 ========================================================================================*/

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { links } from "../../utils/constants";
 import { NavSideContext } from "../../context/NavContext";
 import "./sidebar.css";
+import NavBtns from "./cartbuttons";
 const SideBar = () => {
   const { togglesideBar, toggleBar, setToggleSideBar } = NavSideContext();
 
@@ -33,6 +34,7 @@ const SideBar = () => {
             </Link>
           ))}
         </ul>
+        <NavBtns />
       </aside>
     </>
   );

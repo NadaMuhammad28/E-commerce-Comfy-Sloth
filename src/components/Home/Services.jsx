@@ -1,13 +1,7 @@
 import Grid2 from "@mui/material/Unstable_Grid2";
 import { services } from "../../utils/constants";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
-import { useEffect } from "react";
 const Services = () => {
-  useEffect(() => {
-    AOS.init({ duration: 800 });
-  }, []);
   return (
     <section className="services-sec ">
       <div className="container ">
@@ -15,7 +9,7 @@ const Services = () => {
           <header>
             <Grid2 container spacing={{ xs: 3 }}>
               <Grid2 item md={6}>
-                <h3>
+                <h3 data-aos="fade-right">
                   custom furniture <br />
                   built only for you
                 </h3>
@@ -27,7 +21,7 @@ const Services = () => {
                 alignItems="center"
                 justifyContent="center"
               >
-                <p>
+                <p data-aos="fade-left">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
                   quisquam saepe id reiciendis sunt, repudiandae libero amet rem
                   quia quod?
