@@ -31,7 +31,7 @@ const AddtoCart = ({ product }) => {
     shipping: product.shipping,
   };
   return (
-    <div>
+    <div className=" d-flex-col single-add-to-cart-wrapper">
       <Colors
         colors={product.colors}
         setClrIndex={setClrIndex}
@@ -43,7 +43,12 @@ const AddtoCart = ({ product }) => {
         increaseAmount={increaseAmount}
         decreaseAmount={decreaseAmount}
       />
-      <Link onClick={() => addToCart(addedProduct)}>Add to cart</Link>
+      <Link
+        onClick={() => addToCart(addedProduct)}
+        className="btn single-adtocart-btn"
+      >
+        Add to cart
+      </Link>
     </div>
   );
 };

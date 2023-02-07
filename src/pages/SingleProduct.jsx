@@ -76,7 +76,6 @@ const SingleProduct = () => {
                   <span>Brand:</span>
                   {brand}
                 </p>
-                <hr />
                 {stock > 0 && <AddToCart product={product} />}
               </div>
             </Grid2>

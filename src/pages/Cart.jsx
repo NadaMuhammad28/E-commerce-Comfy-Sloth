@@ -1,5 +1,4 @@
 import { useCartContext } from "../context/CartContext";
-import empty from "../assets/empty-bag.png";
 import { Link } from "react-router-dom";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import "./cart.css";
@@ -7,6 +6,7 @@ import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 // import FormatPrice from "../components/products/FormatPrice";
 import { formatPrice } from "../utils/helpers";
+import EmptyCart from "../components/Cart/emptyCart";
 const Cart = () => {
   const { cart, toggleAmount, totalPrice, shipping } = useCartContext();
 
@@ -17,22 +17,7 @@ const Cart = () => {
     toggleAmount(id, "DECREMENT");
   };
   const columns = [{ field: "name", width: 150, editable: false }];
-  if (cart && cart.length < 1)
-    return (
-      <main className="sec-wrapper empty-cart-wrapper">
-        <div className="container">
-          <div className="wrapper empty-cart">
-            <img src={empty} />
-            <h4>your cart is empty</h4>
-            <p>Get yourself some new comfy furniture.</p>
-
-            <Link className="btn shop-btn" to="/products">
-              start shopping now
-            </Link>
-          </div>
-        </div>
-      </main>
-    );
+  if (cart && cart.length < 1) return <EmptyCart />;
 
   return (
     <main className="sec-wrapper cart-pg-wrapper">

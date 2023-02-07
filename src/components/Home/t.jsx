@@ -3,9 +3,7 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../shared/Loade";
 import { useProductsContext } from "../../context/ProductsContect";
-import OwlCarousel from "react-owl-carousel";
-import "owl.carousel/dist/assets/owl.carousel.min.css";
-import "owl.carousel/dist/assets/owl.theme.default.min.css";
+import Slider from "infinite-react-carousel";
 
 const Temp = () => {
   const { feturedProducts: products, isProductsLoading: Loading } =
@@ -37,35 +35,23 @@ const Temp = () => {
               </Grid2>
             </Grid2>
           </header>
-
-          <div className="featured-products-slider-wrapper">
-            {products.length !== 0 ? (
-              <OwlCarousel className="owl-theme" loop margin={10} nav>
-                {/* {products &&
-                  products.map((product) => {
-                    return (
-                      <Link>
-                        <article>
-                          <img src={product.image} alt={product.name} />
-
-                          <div>
-                            <h5>{product.name}</h5>
-                            {}
-                          </div>
-                        </article>
-                      </Link>
-                    );
-                  })} */}
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-              </OwlCarousel>
-            ) : (
-              <Loader />
-            )}
-          </div>
-
+          <Slider dots>
+            <div>
+              <h3>1</h3>
+            </div>
+            <div>
+              <h3>2</h3>
+            </div>
+            <div>
+              <h3>3</h3>
+            </div>
+            <div>
+              <h3>4</h3>
+            </div>
+            <div>
+              <h3>5</h3>
+            </div>
+          </Slider>
           <Link to="products">all products</Link>
         </div>
       </div>

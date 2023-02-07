@@ -273,6 +273,7 @@
 
 .contact-section {
   padding: var(--section-padding);
+  overflow: hidden;
 }
 .contact-section h3 {
   color: var(--txt-clr-1);

@@ -1,23 +1,28 @@
 // import { Children } from "react";
 import { useUserContext } from "../context/userContext";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router";
+import Loader from "../components/shared/Loade";
 
-const PrivateRoute = ({ children }) => {
+const PrivateRoute = ({ children, ...rest }) => {
+  const { user } = useAuth0();
+
   const {
     logout,
-    user,
+
     isAuthenticated,
     isLoading,
     loginWithRedirect,
     myUser,
   } = useUserContext();
-  console.log(isAuthenticated);
-  if (isAuthenticated) {
+  if (isLoading) return <Loader />;
+  if (user) {
     return children;
   } else {
     loginWithRedirect();
   }
 
-  return <section className="private-redirect"></section>;
+  return <main className="private-redirect"></main>;
 };
 
 export default PrivateRoute;

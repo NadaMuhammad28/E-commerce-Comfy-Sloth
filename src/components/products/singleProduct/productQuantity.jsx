@@ -1,14 +1,14 @@
-import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { useCartContext } from "../../../context/CartContext";
 const ProductAmount = ({ amount, increaseAmount, decreaseAmount }) => {
   return (
-    <div>
+    <div className="single-product-quantity">
       <button onClick={decreaseAmount}>
-        <AiOutlineMinusCircle />
+        <AiOutlineMinus />
       </button>
-      <h2> {amount}</h2>
+      <div> {amount}</div>
       <button onClick={increaseAmount}>
-        <AiOutlinePlusCircle />
+        <AiOutlinePlus />
       </button>
     </div>
   );

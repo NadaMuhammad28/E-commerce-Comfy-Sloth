@@ -13,7 +13,6 @@ import Grid2 from "@mui/material/Unstable_Grid2";
 
 const NewsLetter = () => {
   const [state, handleSubmit] = useForm("xyyazlar");
-  // if (state.succeeded) setValidatorMsg("thanks for joining!");
   const [validatorMsg, setValidatorMsg] = useState(null);
   //Subscribed toast
   const notify = () =>
@@ -43,6 +42,8 @@ const NewsLetter = () => {
 
   return (
     <section className="contact-section ">
+      <ToastContainer />
+
       <div className="container">
         <div className="contact-section-wrapper">
           <h3 data-aos="fade-right"> Join our newsletter and get 20% off</h3>
@@ -68,7 +69,6 @@ const NewsLetter = () => {
                     id="email"
                   />
                   <button disabled={state.submitting}> subscribe</button>
-                  <ToastContainer position="top-right" />
                 </form>
               </Grid2>
             </Grid2>
