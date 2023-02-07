@@ -19,7 +19,7 @@
   --txt-clr-1: #102a42;
   --txt-clr-2: #ab7a5f;
   --txt-clr-2-light: #ab7a5f;
-  --txt-clr-2-dark: Html5, CSS3, Bootstrap, JavaScript and ReactJS.;
+  --txt-clr-2-dark: #a37156;
   --txt-clr-3: #eaded7;
   --txt-clr-4: #617d98;
   --txt-clr-black: #222;
@@ -31,11 +31,12 @@
   --spacing: 0.1rem;
   --radius: 0.25rem;
   --section-padding: 5rem 0;
-  --border-blac-thin: 0.1em solid var(--txt-clr-black);
+  --border-black-thin: 0.12em solid var(--txt-clr-black);
 
   --nav-height: 4em;
   /*for intro img*/
   --translationy: 5vh;
+  --toastify-icon-color-success: #eaded7;
 }
 html {
   height: 100%;
@@ -328,4 +329,21 @@ footer {
   position: absolute;
   width: 100%;
   z-index: 100;
+}
+/*=====================================================TOASTIFY=========================================================*/
+/*Global style*/
+
+.Toastify__toast-theme--light {
+  background-color: var(--txt-clr-2);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.Toastify__close-button--light {
+  text-align: right !important;
+  background-color: transparent !important;
+}
+
+.Toastify__progress-bar--success {
+  background: #eaded7 !important;
 }
