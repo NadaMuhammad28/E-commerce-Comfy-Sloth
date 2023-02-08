@@ -7,7 +7,7 @@ const Images = ({ images = [{ url: "" }] }) => {
     setMainImg(images[index]);
   };
   return (
-    <section>
+    <section className="single-images-wrapper">
       <img src={mainImg?.url} className="main" />
       <div className="img-gallery">
         {images.map((img, index) => {

@@ -6,6 +6,7 @@ import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import FeaturedProducts from "../components/Home/FeaturedProducts";
 // import Featured from "../components/Home/featuredProducts";
 const Home = () => {
   useEffect(() => {
@@ -14,8 +15,7 @@ const Home = () => {
   return (
     <>
       <Intro />
-      {/* <Temp /> */}
-      {/* <Featured /> */}
+      <FeaturedProducts />
       <Services />
       <NewsLetter />
     </>

@@ -11,8 +11,8 @@ import { UserContext } from "./context/userContext";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-mbgave2jrum0nf31.us.auth0.com"
-      clientId="YyH4r1RQTMGKalnuWiqtXO9ZBDUk5t9c"
+      domain={import.meta.env.VITE_REACT_APP_AUTH_DOMAIN}
+      clientId={import.meta.env.VITE_REACT_APP_AUTH_CLIENT_ID}
       cacheLocation="localstorage"
       authorizationParams={{
         redirect_uri: window.location.origin,

@@ -1,5 +1,5 @@
 import EmptyCart from "../components/Cart/emptyCart";
-import StripeCheckOut from "../components/StripeCheckOut";
+import StripeCheckOut from "../components/stripe/StripeCheckOut";
 import { useCartContext } from "../context/CartContext";
 
 const CheckOut = () => {
