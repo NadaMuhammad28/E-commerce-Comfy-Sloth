@@ -29,7 +29,6 @@ const initialState = {
 };
 const ProductsContext = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state.feturedProducts);
   //fetch peoducts
   const fetchData = async (url) => {
     dispatch({ type: START_FETCHING });

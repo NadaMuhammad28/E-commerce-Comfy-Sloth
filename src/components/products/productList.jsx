@@ -1,10 +1,23 @@
 import Loader from "../shared/Loade";
 import { useProductsContext } from "../../context/ProductsContect";
+import { useFilterContext } from "../../context/FilterProductsContext";
+import GridView from "./productsView/GridView";
+import ListView from "./productsView/ListView";
+import EmptyView from "./productsView/EmptyView";
 const ProductsList = () => {
+  const { products, filteredProducts, grid_view } = useFilterContext();
   const { isProductsLoading } = useProductsContext();
   if (isProductsLoading) return <Loader />;
-
-  return <></>;
+  if (filteredProducts.length < 1) return <EmptyView />;
+  return (
+    <>
+      {grid_view ? (
+        <GridView products={filteredProducts} />
+      ) : (
+        <ListView products={filteredProducts} />
+      )}
+    </>
+  );
 };
 
 export default ProductsList;

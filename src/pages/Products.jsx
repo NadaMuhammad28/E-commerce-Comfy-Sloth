@@ -1,7 +1,32 @@
 import ProductsList from "../components/products/productList";
-
+import FilterProducts from "../components/products/FilterProducts";
+import SortProducts from "../components/products/SortProducts";
+import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
+import "../components/products/products.css";
 const ProductsPage = () => {
-  return <ProductsList />;
+  return (
+    <main className="products d-flex">
+      <Grid2 container spacing={{ xs: 3 }}>
+        {/* filters */}
+        <Grid2 item xs={3}>
+          <FilterProducts />
+        </Grid2>
+
+        {/* sort and products subgrid */}
+
+        <Grid2 item xs={9} container direction="column">
+          {/* sort */}
+          <Grid2 item xs={12}>
+            <SortProducts />
+          </Grid2>
+          {/* products */}
+          <Grid2 item xs={12}>
+            <ProductsList />
+          </Grid2>
+        </Grid2>
+      </Grid2>
+    </main>
+  );
 };
 
 export default ProductsPage;

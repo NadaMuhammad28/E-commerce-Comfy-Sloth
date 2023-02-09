@@ -14,3 +14,5 @@ export const DECCREMENT_PRODUCT_QUANTITY = "DECREMENT_PRODUCT_QUANTITY";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const INCREASE_CART_COUNT = "INCREASE_CART_COUNT";
 export const TOGGLE_AMOUNT = " TOGGLE_AMOUNT";
+//=========================================FILTER CONTEXT ACTIONS===================================================================
+export const LOAD_WHOLE_PRODUCTS = "LOAD_WHOLE_PRODUCTS";
