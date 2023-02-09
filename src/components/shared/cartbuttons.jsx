@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import { useUserContext } from "../../context/userContext";
-import { BsFillCartFill } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
-import { FaUserAlt } from "react-icons/fa";
+import { FaUser, FaShoppingCart, FaUserPlus } from "react-icons/fa";
 import { useState } from "react";
 
 const NavBtns = () => {
@@ -18,14 +17,14 @@ const NavBtns = () => {
   } = useUserContext();
   const { totalAmount } = useCartContext();
   return (
-    <div className="nav-btns">
-      <Link to="cart">
-        <BsFillCartFill /> <span>{totalAmount}</span>
+    <div className="nav-btns d-flex ">
+      <Link to="cart" className="nav-cart-btn">
+        <FaShoppingCart /> <span>{totalAmount}</span>
       </Link>
 
       {isAuthenticated ? (
         <button
-          className="acc-btn"
+          className="acc-btn d-flex"
           onClick={() =>
             authOptions === "auth-options-wrapper"
               ? setAuthOptions(
@@ -34,19 +33,25 @@ const NavBtns = () => {
               : setAuthOptions("auth-options-wrapper")
           }
         >
-          <FaUserAlt /> <span> {user.given_name} </span>
+          <FaUser />
+          <span className="nav-auth-btn-log">
+            {user.given_name && user.given_name}
+          </span>
         </button>
       ) : (
-        <button onClick={loginWithRedirect}>login</button>
+        <button className="acc-btn d-flex" onClick={loginWithRedirect}>
+          <span className="nav-auth-btn-log"> sign in </span>
+          <FaUserPlus />
+        </button>
       )}
-
-      <ul className={authOptions}>
-        <li>
-          <button onClick={() => logout({ returnTo: window.location.origin })}>
-            <FiLogOut /> logout
-          </button>
-        </li>
-      </ul>
+      <div className={authOptions}>
+        <button
+          onClick={() => logout({ returnTo: window.location.origin })}
+          className="d-flex nav-logout-btn"
+        >
+          <FiLogOut /> logout
+        </button>
+      </div>
     </div>
   );
 };

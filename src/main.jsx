@@ -8,6 +8,7 @@ import { ProductsContext } from "./context/ProductsContect";
 import { NavContext } from "./context/NavContext";
 import { CartContext } from "./context/CartContext";
 import { UserContext } from "./context/userContext";
+import { FilterContextProvider } from "./context/FilterProductsContext";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Auth0Provider
@@ -20,11 +21,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     >
       <UserContext>
         <ProductsContext>
-          <CartContext>
-            <NavContext>
-              <App />
-            </NavContext>
-          </CartContext>
+          <FilterContextProvider>
+            <CartContext>
+              <NavContext>
+                <App />
+              </NavContext>
+            </CartContext>
+          </FilterContextProvider>
         </ProductsContext>
       </UserContext>
     </Auth0Provider>

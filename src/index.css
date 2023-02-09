@@ -14,7 +14,7 @@
   --nav-bg-clr-t: #fff;
 
   --nav-bg-clr-light: #fff;
-
+  --txt-clr-white: #fff;
   --txt-clr-1-light: #324d67;
   --txt-clr-1: #102a42;
   --txt-clr-2: #ab7a5f;
@@ -27,6 +27,7 @@
   --clr-primary-5: hsl(22, 31%, 52%);
   --clr-primary-6: #eaded7;
   --transition-4: all ease 0.3s;
+  --clr-grey-1: #102a42;
   --clr-grey-8: #bcccdc;
   --spacing: 0.1rem;
   --radius: 0.25rem;
@@ -50,6 +51,9 @@ body {
 ul {
   list-style: none;
 }
+li a {
+  color: var(--txt-clr-black);
+}
 a,
 a:visited {
   text-decoration: none;
@@ -72,6 +76,10 @@ a:visited {
 .wrapper {
   width: 100%;
   height: 100%;
+}
+.d-flex {
+  display: flex;
+  align-items: center;
 }
 .d-flex-row-center {
   display: flex;
