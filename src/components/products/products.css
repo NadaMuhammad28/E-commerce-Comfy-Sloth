@@ -1,3 +1,19 @@
 .products {
-  height: 100vh;
+  width: 100%;
+}
+.filters-wrapper {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(69, 79, 97) !important;
+}
+.listview-p-card {
+  display: flex;
+}
+.p-card-list-img {
+  width: 26rem !important;
+}
+@media screen and (max-width: 720px) {
+  .listview-p-card {
+    flex-direction: column;
+  }
 }

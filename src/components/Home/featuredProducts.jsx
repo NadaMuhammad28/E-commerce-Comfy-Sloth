@@ -60,8 +60,10 @@ const FeturedProducts = () => {
                     <SwiperSlide key={product.id}>
                       <article className="featured-p-card">
                         <Link to={`products/${product.id}`}>
-                          <img src={product.image} />
-                          <div className="d-flex-row-center featured-p-overlay"></div>
+                          <div className="p-card-img-container">
+                            <img src={product.image} />
+                            <div className="d-flex-row-center featured-p-overlay"></div>
+                          </div>
                         </Link>
 
                         <div className="featured-p-details">

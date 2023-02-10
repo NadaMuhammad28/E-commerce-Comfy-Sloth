@@ -1,5 +1,5 @@
 const FilterProducts = () => {
-  return <h3>filter</h3>;
+  return <aside className="filters-wrapper"></aside>;
 };
 
 export default FilterProducts;
