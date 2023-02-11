@@ -124,7 +124,17 @@ button {
   cursor: pointer;
   border: none;
 }
-
+input,
+select,
+option {
+  outline: none;
+}
+label {
+  text-transform: capitalize;
+  color: var(--txt-clr-1);
+  font-weight: 500;
+  vertical-align: middle;
+}
 .section-center {
   width: 90vw;
   padding: 5rem 0;

@@ -17,3 +17,51 @@
     flex-direction: column;
   }
 }
+/*=====================================SORT COMPONENT=======================================================================*/
+.sort-wrapper {
+  width: 100% !important;
+  gap: 2rem;
+  justify-content: space-between;
+}
+/* .sort-wrapper hr {
+  flex-shrink: 1;
+  flex-grow: 1;
+} */
+/*view btns*/
+.views-btns-container {
+  gap: 0.5rem;
+}
+.view-btn {
+  width: 1.5rem;
+  border-radius: var(--radius);
+  height: 1.5rem;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.unactive-view {
+  background: transparent;
+  border: 1px solid var(--txt-clr-black);
+  color: var(--txt-clr-black);
+}
+.active-view {
+  background: var(--txt-clr-black);
+  color: var(--txt-clr-white);
+}
+.sort-wrapper form {
+  width: 100%;
+  gap: 1rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.sort-wrapper form > select {
+  padding: 1% 3%;
+  background-color: transparent;
+  border: 1px solid #222;
+  border-radius: var(--radius);
+  cursor: pointer;
+}

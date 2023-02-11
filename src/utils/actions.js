@@ -16,3 +16,7 @@ export const INCREASE_CART_COUNT = "INCREASE_CART_COUNT";
 export const TOGGLE_AMOUNT = " TOGGLE_AMOUNT";
 //=========================================FILTER CONTEXT ACTIONS===================================================================
 export const LOAD_WHOLE_PRODUCTS = "LOAD_WHOLE_PRODUCTS";
+export const GRID_VIEW = "GRID_VIEW";
+export const LIST_VIEW = "LIST_VIEW";
+export const SORT_PRODUCTS = "SORT_PRODUCTS";
+export const CHANGE_SORT_TYPE = " CHANGE_SORT_TYPE";
