@@ -1,11 +1,9 @@
 .products {
-  width: 100%;
+  /* width: 100%; */
+  position: relative;
+  overflow: hidden;
 }
-.filters-wrapper {
-  height: 100%;
-  width: 100%;
-  background-color: rgb(69, 79, 97) !important;
-}
+
 .listview-p-card {
   display: flex;
 }
@@ -16,6 +14,9 @@
   .listview-p-card {
     flex-direction: column;
   }
+}
+
+.gridview-p-card {
 }
 /*=====================================SORT COMPONENT=======================================================================*/
 .sort-wrapper {
@@ -64,4 +65,82 @@
   border: 1px solid #222;
   border-radius: var(--radius);
   cursor: pointer;
+}
+/*=========================================================================================================== */
+.filters-wrapper {
+  background-color: darkcyan;
+  position: fixed;
+}
+
+.categories-wrapper {
+  gap: 1.5rem;
+}
+.active-cat {
+  text-decoration: underline;
+  font-weight: 600;
+}
+/*=====================================FILTERS MODAL=======================================================================*/
+
+.modal-opend {
+  transform: translateX(0);
+  transition: var(--transition-4);
+  background-color: var(--section-bg-1);
+}
+.modal-closed {
+  transform: translateX(100%);
+  transition: var(--transition-4);
+}
+.filter-modal-wrapper {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transition: 0.3s all ease-in-out;
+  width: 100%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1;
+  height: 100vh;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-size: cover;
+}
+
+/*============================colors COMPONENT===============================*/
+.colors-wrapper {
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.product-clr-op {
+  border-radius: 50%;
+  width: 1.5rem;
+  cursor: pointer;
+  height: 1.5rem;
+  background-color: rgba(0.2);
+
+  position: relative;
+}
+.clr-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.clr-checked {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
 }

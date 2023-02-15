@@ -10,13 +10,13 @@ const ProductsList = () => {
   if (isProductsLoading) return <Loader />;
   if (filteredProducts.length < 1) return <EmptyView />;
   return (
-    <>
+    <section>
       {grid_view ? (
         <GridView products={filteredProducts} />
       ) : (
         <ListView products={filteredProducts} />
       )}
-    </>
+    </section>
   );
 };
 

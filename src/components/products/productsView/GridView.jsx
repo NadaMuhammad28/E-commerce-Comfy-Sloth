@@ -5,11 +5,22 @@ import { formatPrice } from "../../../utils/helpers";
 const GridView = ({ products }) => {
   return (
     <section>
-      <Grid2 container spacing={{ xs: 2 }}>
+      <Grid2
+        container
+        justifyContent="flex-start"
+        spacing={{ xs: 2 }}
+        // disableEqualOverflow
+      >
         {products &&
           products.map((p) => {
             return (
-              <Grid2 item sm={6} md={4}>
+              <Grid2
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                // style={{ backgroundColor: "black" }}
+              >
                 <article key={p.id} className="featured-p-card gridview-p-card">
                   <Link to={`/products/${p.id}`} target="_blank">
                     <div className="p-card-img-container">

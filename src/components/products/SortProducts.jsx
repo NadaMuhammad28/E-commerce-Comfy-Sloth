@@ -1,6 +1,7 @@
 import { BsFillGridFill, BsList } from "react-icons/bs";
 import { useFilterContext } from "../../context/FilterProductsContext";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
+import FiltersModal from "./FiltersModal";
 const SortProducts = () => {
   const sortOptions = [
     "",
@@ -15,8 +16,13 @@ const SortProducts = () => {
     showListView,
     showGridView,
     handleSorting,
+    isFiltersModalOpen,
+    showFliters,
+    updateFilters,
+    filters,
   } = useFilterContext();
-
+  let { text } = filters;
+  console.log(text);
   return (
     <header className="sort-wrapper">
       <Grid2
@@ -46,13 +52,23 @@ const SortProducts = () => {
           </div>
         </Grid2>
 
+        <Grid2 item>
+          <form>
+            <input
+              type="text"
+              name="text"
+              value={text}
+              onChange={updateFilters}
+            />
+          </form>
+        </Grid2>
         {/*  */}
         <Grid2 lg={3} xl={2}>
           <p>{products.length} products found</p>
         </Grid2>
-        <Grid2 item xs={0} lg={2.5} xl={3}>
+        {/* <Grid2 item xs={0} lg={2.5} xl={3}>
           <hr />
-        </Grid2>
+        </Grid2> */}
         <Grid2
           item
           container
@@ -74,6 +90,17 @@ const SortProducts = () => {
               })}
             </select>
           </form>
+        </Grid2>
+
+        {/* is filter modal open? */}
+        <Grid2 item>
+          <button
+            onClick={() => {
+              showFliters();
+            }}
+          >
+            filter
+          </button>
         </Grid2>
       </Grid2>
     </header>

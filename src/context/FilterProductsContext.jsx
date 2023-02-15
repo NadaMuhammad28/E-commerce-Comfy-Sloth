@@ -8,30 +8,90 @@ import {
   LIST_VIEW,
   SORT_PRODUCTS,
   CHANGE_SORT_TYPE,
+  CHANGE_CATEGORY,
+  FILTER_CATEGORIES,
+  SHOW_FILTERS_MODAL,
+  CLOSE_FILTERS_MODAL,
+  UPDATE_FILTERS,
+  FILTER_PRODUCTS,
+  CLEAR_FILTERS,
 } from "../utils/actions";
+
 const filterContext = React.createContext();
 
 const FilterContextProvider = ({ children }) => {
+  //copy of the org producta
   const { products } = useProductsContext();
+  let catgoriesSet = new Set();
+  products.forEach((element) => {
+    catgoriesSet.add(element.category);
+  });
+  let categories = ["all", ...catgoriesSet];
   const initialState = {
     products: [],
     filteredProducts: [],
     grid_view: true,
+    isFiltersModalOpen: false,
     sort: "",
+    category: "",
+
+    filters: {
+      text: "",
+      minPrice: 0,
+      price: 0,
+      maxPrice: 0,
+      color: "all",
+      category: "",
+      company: "",
+      isFreeShippingChecked: false,
+    },
+    // catgories: [...catgories],
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log("ans sort", state.sort);
   useEffect(() => {
     dispatch({ type: LOAD_WHOLE_PRODUCTS, payload: products });
   }, [products]);
-
-  // useEffect(() => {
-  //   dispatch({ type: SORT_PRODUCTS, payload: sortOp }), [sortOp, state];
-  // });
+  console.log(state.products);
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //====================================================SORTING====================================================================
   const handleSorting = (e) => {
-    console.log(e.target.value);
     dispatch({ type: CHANGE_SORT_TYPE, payload: e.target.value });
     dispatch({ type: SORT_PRODUCTS });
+  };
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //====================================================FILTERS MODAL====================================================================
+
+  const showFliters = () => {
+    dispatch({ type: SHOW_FILTERS_MODAL });
+  };
+
+  const closeFilters = () => {
+    dispatch({ type: CLOSE_FILTERS_MODAL });
+  };
+  const updateFilters = (e) => {
+    e.preventDefault();
+    let name = e.target.name;
+    let value;
+    if (name === "isFreeShippingChecked") value = e.target.checked;
+    else {
+      value = e.target.value;
+    }
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
+    dispatch({ type: FILTER_PRODUCTS });
+    if (name !== "price") closeFilters();
+  };
+
+  const clearFilters = () => {
+    dispatch({ type: CLEAR_FILTERS });
+    closeFilters();
+  };
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //====================================================CATEGORIES====================================================================
+  const changeCategory = (category) => {
+    dispatch({ type: CHANGE_CATEGORY, payload: category });
+    dispatch({ type: FILTER_CATEGORIES });
+    closeFilters();
   };
 
   const showGridView = () => {
@@ -48,6 +108,12 @@ const FilterContextProvider = ({ children }) => {
         showGridView,
 
         handleSorting,
+        showFliters,
+        closeFilters,
+        categories,
+        changeCategory,
+        updateFilters,
+        clearFilters,
       }}
     >
       {children}

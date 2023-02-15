@@ -4,6 +4,13 @@ import {
   LIST_VIEW,
   SORT_PRODUCTS,
   CHANGE_SORT_TYPE,
+  CHANGE_CATEGORY,
+  FILTER_CATEGORIES,
+  SHOW_FILTERS_MODAL,
+  CLOSE_FILTERS_MODAL,
+  UPDATE_FILTERS,
+  FILTER_PRODUCTS,
+  CLEAR_FILTERS,
 } from "../utils/actions";
 const reducer = (state, action) => {
   switch (action.type) {
@@ -11,11 +18,16 @@ const reducer = (state, action) => {
       //this is to initialize products and filtered products to the products fetched from the api
       //we fetched it from the products context
       //to not map the same array ref to both of the whole products and the filterd ones ==> use spread operator
-
+      let maxPrice = 0;
+      action.payload.forEach((element) => {
+        maxPrice = Math.max(maxPrice, element.price);
+      });
       return {
         ...state,
         products: [...action.payload],
         filteredProducts: [...action.payload],
+
+        filters: { ...state.filters, maxPrice, price: maxPrice },
       };
     }
 
@@ -58,7 +70,96 @@ const reducer = (state, action) => {
         return state;
       }
     }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //====================================================FILTERS MODAL====================================================================
+    case SHOW_FILTERS_MODAL: {
+      return { ...state, isFiltersModalOpen: true };
+    }
+
+    case CLOSE_FILTERS_MODAL: {
+      return { ...state, isFiltersModalOpen: false };
+    }
     /////////////////////////////////////////////////////////////////////////////////
+    case UPDATE_FILTERS: {
+      let { name, value } = action.payload;
+
+      if (name === "text") {
+        console.log("search");
+      }
+
+      // if (name === "isFreeShippingChecked") {
+      //   console.log("shipping");
+      //   value = !value;
+      // }
+
+      return { ...state, filters: { ...state.filters, [name]: value } };
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    case FILTER_PRODUCTS: {
+      const { text, isFreeShippingChecked, color, category, company, price } =
+        state.filters;
+      let tempProducts = state.products;
+      if (text) {
+        tempProducts = tempProducts.filter((el) => el.name.startsWith(text));
+      }
+      if (isFreeShippingChecked) {
+        tempProducts = tempProducts.filter((el) => el.shipping == true);
+        console.log("kkkkk");
+      }
+
+      if (color !== "all") {
+        tempProducts = tempProducts.filter((el) =>
+          el.colors.some((clr) => clr == color)
+        );
+      }
+
+      if (category) {
+        // console.log("ddd");
+        tempProducts = tempProducts.filter((el) => el.category === category);
+      }
+
+      if (company) {
+        tempProducts = tempProducts.filter((el) => el.company === company);
+      }
+
+      tempProducts = tempProducts.filter((el) => el.price <= price);
+
+      return { ...state, filteredProducts: tempProducts };
+    }
+
+    case CLEAR_FILTERS: {
+      return {
+        ...state,
+        filteredProducts: state.products,
+        filters: {
+          text: "",
+          minPrice: 0,
+          maxPrice: 0,
+          isFreeShippingChecked: false,
+        },
+      };
+    }
+    //====================================================CATEGORIES====================================================================
+
+    case CHANGE_CATEGORY: {
+      return { ...state, category: action.payload };
+    }
+    case FILTER_CATEGORIES: {
+      if (state.category == "all") {
+        let { products } = state;
+        console.log("eee", products);
+        return { ...state, filteredProducts: state.products };
+      }
+      let tempProducts = state.products.filter(
+        (el) => el.category == state.category
+      );
+
+      console.log(tempProducts);
+      return { ...state, filteredProducts: tempProducts };
+    }
     default:
       return state;
   }
