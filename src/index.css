@@ -295,14 +295,13 @@ p {
   height: 100%;
   display: flex;
   gap: 4rem;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   flex-direction: column;
   justify-content: center;
 }
 
 .featured-products-slider-wrapper {
   /* display: flex;
-  width: 100%; */
   /* overflow: hidden; */
   /* align-items: center;
   justify-content: center;
@@ -310,7 +309,8 @@ p {
   text-align: center; */
   /* height: 50rem; */
   /* height: 30rem; */
-  /* height: 100%; */
+  width: 100%;
+  height: 100%;
   /* margin-bottom: 18rem; */
 }
 .featured-p-card {

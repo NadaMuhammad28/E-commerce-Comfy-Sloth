@@ -181,6 +181,7 @@
 .contact-section {
   padding: var(--section-padding);
   overflow: hidden;
+  height: 16em;
 }
 .contact-section h3 {
   color: var(--txt-clr-1);

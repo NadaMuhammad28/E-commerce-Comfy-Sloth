@@ -42,8 +42,6 @@ const NewsLetter = () => {
 
   return (
     <section className="contact-section ">
-      <ToastContainer />
-
       <div className="container">
         <div className="contact-section-wrapper">
           <h3 data-aos="fade-right"> Join our newsletter and get 20% off</h3>
