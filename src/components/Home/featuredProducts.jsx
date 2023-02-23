@@ -5,9 +5,8 @@ import { useProductsContext } from "../../context/ProductsContect";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
 import { formatPrice } from "../../utils/helpers";
-import "swiper/swiper-bundle.min.css";
-import "swiper/swiper.min.css";
-import "./swiper.css";
+
+import "./swiperCustom.css";
 
 const FeturedProducts = () => {
   const { feturedProducts: products, isProductsLoading: Loading } =
