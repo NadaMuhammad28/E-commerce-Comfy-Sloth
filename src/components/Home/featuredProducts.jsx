@@ -5,16 +5,13 @@ import { useProductsContext } from "../../context/ProductsContect";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
 import { formatPrice } from "../../utils/helpers";
-// Import Swiper styles
-// import "swiper/css";
 import "swiper/swiper-bundle.min.css";
-// import "node_modules/swiper/swiper.scss";
+import "swiper/swiper.min.css";
 import "./swiper.css";
 
 const FeturedProducts = () => {
   const { feturedProducts: products, isProductsLoading: Loading } =
     useProductsContext();
-
   return (
     <section className="featured-products-section sec-wrapper">
       <div className="container">
