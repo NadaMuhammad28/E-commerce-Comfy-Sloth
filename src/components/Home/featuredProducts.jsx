@@ -3,13 +3,13 @@ import Loader from "../shared/Loade";
 import { useProductsContext } from "../../context/ProductsContect";
 //SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
+import { Navigation, Autoplay } from "swiper";
 import { formatPrice } from "../../utils/helpers";
 // Import Swiper styles
-import "swiper/css";
+// import "swiper/css";
+import "swiper/swiper-bundle.min.css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
-import "swiper/css/controller";
 import "./swiper.css";
 
 const FeturedProducts = () => {
@@ -51,7 +51,7 @@ const FeturedProducts = () => {
                     spaceBetween: 40,
                   },
                 }}
-                modules={[Pagination, Navigation, Autoplay]}
+                modules={[Navigation, Autoplay]}
                 className="mySwiper"
               >
                 {products.map((product) => {
