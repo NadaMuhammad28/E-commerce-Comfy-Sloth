@@ -295,6 +295,7 @@ p {
   height: 100%;
   display: flex;
   gap: 4rem;
+  background-color: blueviolet;
   flex-direction: column;
   justify-content: center;
 }
