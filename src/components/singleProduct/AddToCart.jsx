@@ -1,5 +1,5 @@
-import Colors from "../products/singleProduct/colors";
-import Quantity from "../products/singleProduct/productQuantity";
+import Colors from "./colors";
+import Quantity from "./productQuantity";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";

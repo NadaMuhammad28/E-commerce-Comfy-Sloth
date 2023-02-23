@@ -26,6 +26,7 @@
   --clr-primary-1: #453227;
   --clr-primary-5: hsl(22, 31%, 52%);
   --clr-primary-6: #eaded7;
+  --clr-grey-7: #f1f5f8;
   --transition-4: all ease 0.3s;
   --clr-grey-1: #102a42;
   --clr-grey-8: #bcccdc;
@@ -46,6 +47,11 @@ html {
 body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+}
+
+body:has(.overlay) {
+  overflow-y: hidden;
+  height: 100vh;
 }
 
 ul {
@@ -194,6 +200,7 @@ p {
   height: 100%;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
   background-size: cover;
+  overflow: hidden;
 }
 .about-header h2 {
   font-family: "Poppins", sans-serif;

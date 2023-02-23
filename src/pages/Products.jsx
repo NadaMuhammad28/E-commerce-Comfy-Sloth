@@ -1,5 +1,4 @@
 import ProductsList from "../components/products/productList";
-import FilterProducts from "../components/products/FilterProducts";
 import SortProducts from "../components/products/SortProducts";
 import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
 import "../components/products/products.css";

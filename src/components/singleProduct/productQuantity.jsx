@@ -1,5 +1,5 @@
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import { useCartContext } from "../../../context/CartContext";
+import { useCartContext } from "../../context/CartContext";
 const ProductAmount = ({ amount, increaseAmount, decreaseAmount }) => {
   return (
     <div className="single-product-quantity">

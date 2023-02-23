@@ -1,7 +1,11 @@
 import { BsCheckLg } from "react-icons/bs";
-
+import { AiOutlineClose } from "react-icons/ai";
 import { useFilterContext } from "../../context/FilterProductsContext";
 import { isMAtched, generateFilters, formatPrice } from "../../utils/helpers";
+import SelectOptions from "./Filters/select";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+
 const FiltersModal = () => {
   const {
     closeFilters,
@@ -34,113 +38,142 @@ const FiltersModal = () => {
 
   return (
     <div className="filter-modal-wrapper d-flex overlay">
-      <div className={modalClass} style={{ width: "90vw", height: "100vh" }}>
-        <header>
-          <button onClick={() => closeFilters()}>close </button>
-        </header>
-        <form className="d-flex-col">
-          {/*CLEAR FILTERS  */}
-
+      <div className={modalClass} style={{ height: "90vh", margin: "auto" }}>
+        <header className="d-flex">
+          <button onClick={() => closeFilters()}>
+            <AiOutlineClose />
+          </button>
+          <h4>Filter By</h4>
           <button type="button" onClick={clearFilters}>
             clear filters
           </button>
+        </header>
+        <div className="filters-form-wrapper d-flex">
+          <form className="d-flex-col filters-form">
+            {/*=============================================================================================================== */}
 
-          {/* COLORS */}
-          <div className="colors-wrapper">
-            <span>colors</span>
-            {colors &&
-              colors.map((clr, index) => {
-                return (
-                  <button
-                    onClick={updateFilters}
-                    name="color"
-                    key={index}
-                    value={clr}
-                    className="product-clr-op"
-                    style={{ backgroundColor: ` ${clr}` }}
-                  >
-                    {clr == "all" ? "all" : ""}
-                    <div
-                      className={
-                        isMAtched(clr, color) ? "clr-checked" : "clr-overlay"
-                      }
-                    >
-                      {isMAtched(clr, color) ? <BsCheckLg /> : ""}
-                    </div>
-                  </button>
-                );
-              })}
-          </div>
-          {/* ///////////////////// */}
+            {/* COLORS */}
+            <div className="colors-wrapper ">
+              <label>colors </label>
+              <div className="p-clrs-container d-flex">
+                {colors &&
+                  colors.map((clr, index) => {
+                    return (
+                      <button
+                        onClick={updateFilters}
+                        name="color"
+                        key={index}
+                        value={clr}
+                        className="product-clr-op"
+                        style={{ backgroundColor: ` ${clr}` }}
+                      >
+                        {clr == "all" ? "all" : ""}
+                        <div
+                          className={
+                            isMAtched(clr, color)
+                              ? "clr-checked"
+                              : "clr-overlay"
+                          }
+                        >
+                          {isMAtched(clr, color) ? <BsCheckLg /> : ""}
+                        </div>
+                      </button>
+                    );
+                  })}
+              </div>
+            </div>
 
-          {/* CATEGORIES */}
-          <div className="categories-wrapper d-flex-col">
-            <label htmlFor="categories">Categories</label>
-            <select
-              id="categories"
-              name="category"
-              value={category}
-              onChange={updateFilters}
-            >
-              {categories &&
-                categories.map((cat) => {
-                  return (
-                    <option name={cat} value={cat} key={cat}>
-                      {cat}
-                    </option>
-                  );
-                })}
-            </select>
-          </div>
+            {/*=============================================================================================================== */}
 
-          {/* companies */}
+            {/* CATEGORIES */}
+            <div className="categories-wrapper d-flex-col">
+              <label htmlFor="categories">Categories</label>
+              <Select
+                style={{
+                  margin: "0 !important",
+                  padding: "0",
+                  textTransform: "capitalize",
+                }}
+                id="categories"
+                name="category"
+                value={category}
+                onChange={updateFilters}
+                displayEmpty
+                inputProps={{ "aria-label": "Without label" }}
+              >
+                {categories &&
+                  categories.map((cat) => {
+                    return (
+                      <MenuItem name={cat} value={cat} key={cat}>
+                        {cat}
+                      </MenuItem>
+                    );
+                  })}
+              </Select>
+            </div>
+            {/*=============================================================================================================== */}
 
-          <div className="categories-wrapper d-flex-col">
-            <label htmlFor="companies">Companies</label>
-            <select
-              id="companies"
-              name="company"
-              value={company}
-              onChange={updateFilters}
-            >
-              {companies &&
-                companies.map((company) => {
-                  return (
-                    <option name={company} value={company} key={company}>
-                      {company}
-                    </option>
-                  );
-                })}
-            </select>
-          </div>
-          {/* PRICE */}
+            {/* companies */}
 
-          <div className="categories-wrapper d-flex-col">
-            <label htmlFor="price">Price</label>
-            <span> {formatPrice(price)}</span>
-            <input
-              type="range"
-              id="price"
-              min={minPrice}
-              max={maxPrice}
-              value={price}
-              onChange={updateFilters}
-              name="price"
-            />
-          </div>
+            <div className="categories-wrapper d-flex-col">
+              <label htmlFor="companies">Companies</label>
+              <Select
+                style={{
+                  margin: "0 !important",
+                  padding: "0",
+                  textTransform: "capitalize",
+                }}
+                id="companies"
+                name="company"
+                value={company}
+                onChange={updateFilters}
+                displayEmpty
+                inputProps={{ "aria-label": "Without label" }}
+              >
+                {companies &&
+                  companies.map((company) => {
+                    return (
+                      <MenuItem name={company} value={company} key={company}>
+                        {company}
+                      </MenuItem>
+                    );
+                  })}
+              </Select>
+            </div>
+            {/*=============================================================================================================== */}
 
-          {/*SHIPPING  */}
-          <div className="categories-wrapper d-flex-col">
-            <label htmlFor="freeshipping">free shipping </label>
-            <input
-              type="checkbox"
-              id="freeshipping"
-              onChange={updateFilters}
-              name="isFreeShippingChecked"
-              checked={isFreeShippingChecked}
-            />
-          </div>
-        </form>
+            {/* PRICE */}
+
+            <div className="categories-wrapper d-flex-col">
+              <label htmlFor="price">Price</label>
+              <span> {formatPrice(price)}</span>
+              <input
+                color="red"
+                type="range"
+                id="price"
+                min={minPrice}
+                max={maxPrice}
+                value={price}
+                onChange={updateFilters}
+                name="price"
+              />
+            </div>
+
+            {/*=============================================================================================================== */}
+
+            {/*SHIPPING  */}
+            <div className="categories-wrapper d-flex-col">
+              <label htmlFor="freeshipping">free shipping </label>
+              <input
+                type="checkbox"
+                id="freeshipping"
+                onChange={updateFilters}
+                name="isFreeShippingChecked"
+                checked={isFreeShippingChecked}
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

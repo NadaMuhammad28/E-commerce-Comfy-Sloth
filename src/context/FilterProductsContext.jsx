@@ -33,16 +33,15 @@ const FilterContextProvider = ({ children }) => {
     grid_view: true,
     isFiltersModalOpen: false,
     sort: "",
-    category: "",
-
+    filterCount: 0,
     filters: {
       text: "",
       minPrice: 0,
       price: 0,
       maxPrice: 0,
       color: "all",
-      category: "",
-      company: "",
+      category: "all",
+      company: "all",
       isFreeShippingChecked: false,
     },
     // catgories: [...catgories],
@@ -50,8 +49,7 @@ const FilterContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   useEffect(() => {
     dispatch({ type: LOAD_WHOLE_PRODUCTS, payload: products });
-  }, [products]);
-  console.log(state.products);
+  }, [products, state.filters.maxPrice]);
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //====================================================SORTING====================================================================
   const handleSorting = (e) => {

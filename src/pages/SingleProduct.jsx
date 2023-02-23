@@ -5,14 +5,11 @@ import { single_product_url as url } from "../utils/constants";
 import Loading from "../components/shared/Loade";
 import Error from "./ErrorPage";
 import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
-import "../components/products/singleProduct/product.css";
+import "../components/singleProduct/product.css";
 
 //single product components
-import Images from "../components/products/singleProduct/Images";
-import Stars from "../components/products/singleProduct/Stars";
+import { Images, Stars, AddToCart } from "../components/singleProduct/index";
 import FormatPrice from "../components/products/FormatPrice";
-import Colors from "../components/products/singleProduct/colors";
-import AddToCart from "../components/products/AddToCart";
 import { Grid } from "@mui/material";
 const SingleProduct = () => {
   const navigate = useNavigate();

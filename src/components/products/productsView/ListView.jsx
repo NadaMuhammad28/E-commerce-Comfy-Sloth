@@ -9,11 +9,13 @@ const ListView = ({ products }) => {
         {products &&
           products.map((p) => {
             return (
-              <Grid2 item>
-                <article
-                  key={p.id}
-                  className="featured-p-card gridview-p-card listview-p-card"
-                >
+              <Grid2
+                item
+                xs={12}
+                paddingLeft={{ xs: 0 }}
+                paddingRight={{ xs: 0 }}
+              >
+                <article key={p.id} className="featured-p-card listview-p-card">
                   <div className="p-card-img-container">
                     <img
                       src={p.image}
@@ -23,7 +25,7 @@ const ListView = ({ products }) => {
                     <div className="featured-p-overlay"></div>
                   </div>
                   <div className="featured-p-details">
-                    <h6>{p.name} </h6>
+                    <h5>{p.name} </h5>
                     <div className="featured-p-price">
                       <strong> {formatPrice(p.price)} </strong>
                     </div>

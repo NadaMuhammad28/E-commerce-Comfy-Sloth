@@ -6,8 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "eject": "react-scripts eject",
-    "preview": "vite preview",
     "ntl": "netlify dev"
   },
   "repository": {

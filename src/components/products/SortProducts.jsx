@@ -1,7 +1,11 @@
-import { BsFillGridFill, BsList } from "react-icons/bs";
 import { useFilterContext } from "../../context/FilterProductsContext";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-import FiltersModal from "./FiltersModal";
+import ViewButtons from "./Filters/ViewButtons";
+import Search from "./Filters/Search";
+import { BiFilterAlt } from "react-icons/bi";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+
 const SortProducts = () => {
   const sortOptions = [
     "",
@@ -12,56 +16,30 @@ const SortProducts = () => {
   ];
   const {
     filteredProducts: products,
-    grid_view,
-    showListView,
-    showGridView,
     handleSorting,
-    isFiltersModalOpen,
     showFliters,
     updateFilters,
     filters,
   } = useFilterContext();
   let { text } = filters;
-  console.log(text);
+
   return (
     <header className="sort-wrapper">
       <Grid2
         alignItems="center"
         container
-        spacing={{}}
+        spacing={1}
+        paddingX={2}
         // direction={{ xs: "column", md: "row" }}
       >
-        <Grid2 item lg={1.5} xl={1}>
-          <div className="views-btns-container d-flex">
-            <button
-              className={
-                grid_view ? "view-btn  active-view" : "view-btn  unactive-view"
-              }
-              onClick={() => showGridView()}
-            >
-              <BsFillGridFill />
-            </button>
-            <button
-              className={
-                !grid_view ? "view-btn  active-view" : "view-btn  unactive-view"
-              }
-              onClick={() => showListView()}
-            >
-              <BsList />
-            </button>
-          </div>
+        <Grid2 item xs={6} md={1.5}>
+          <ViewButtons />
         </Grid2>
 
-        <Grid2 item>
-          <form>
-            <input
-              type="text"
-              name="text"
-              value={text}
-              onChange={updateFilters}
-            />
-          </form>
+        <Grid2 item xl={2}>
+          <Search updateFilters={updateFilters} text={text} />
         </Grid2>
+
         {/*  */}
         <Grid2 lg={3} xl={2}>
           <p>{products.length} products found</p>
@@ -74,11 +52,10 @@ const SortProducts = () => {
           container
           xs={8}
           lg={5}
-          xl={6}
           alignItems="center"
           justifyContent={{ xs: "start", md: "flex-end" }}
         >
-          <form className="d-flex">
+          <form className="">
             <label htmlFor="sort">Sort By</label>
             <select id="sort" onChange={(e) => handleSorting(e)}>
               {sortOptions.map((op) => {
@@ -93,13 +70,14 @@ const SortProducts = () => {
         </Grid2>
 
         {/* is filter modal open? */}
-        <Grid2 item>
+        <Grid2 item xl={1} style={{ backgroundColor: "red" }}>
           <button
             onClick={() => {
               showFliters();
             }}
+            className="filter-modal-btn"
           >
-            filter
+            <BiFilterAlt /> filter
           </button>
         </Grid2>
       </Grid2>

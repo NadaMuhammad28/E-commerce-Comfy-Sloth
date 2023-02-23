@@ -12,13 +12,14 @@ import {
   FILTER_PRODUCTS,
   CLEAR_FILTERS,
 } from "../utils/actions";
+
 const reducer = (state, action) => {
+  let maxPrice = 0;
   switch (action.type) {
     case LOAD_WHOLE_PRODUCTS: {
       //this is to initialize products and filtered products to the products fetched from the api
       //we fetched it from the products context
       //to not map the same array ref to both of the whole products and the filterd ones ==> use spread operator
-      let maxPrice = 0;
       action.payload.forEach((element) => {
         maxPrice = Math.max(maxPrice, element.price);
       });
@@ -84,16 +85,10 @@ const reducer = (state, action) => {
     case UPDATE_FILTERS: {
       let { name, value } = action.payload;
 
-      if (name === "text") {
-        console.log("search");
-      }
-
-      // if (name === "isFreeShippingChecked") {
-      //   console.log("shipping");
-      //   value = !value;
-      // }
-
-      return { ...state, filters: { ...state.filters, [name]: value } };
+      return {
+        ...state,
+        filters: { ...state.filters, [name]: value },
+      };
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -116,12 +111,12 @@ const reducer = (state, action) => {
         );
       }
 
-      if (category) {
+      if (category !== "all") {
         // console.log("ddd");
         tempProducts = tempProducts.filter((el) => el.category === category);
       }
 
-      if (company) {
+      if (company !== "all") {
         tempProducts = tempProducts.filter((el) => el.company === company);
       }
 
@@ -137,7 +132,11 @@ const reducer = (state, action) => {
         filters: {
           text: "",
           minPrice: 0,
-          maxPrice: 0,
+          price: maxPrice,
+          maxPrice: maxPrice,
+          color: "all",
+          category: "all",
+          company: "all",
           isFreeShippingChecked: false,
         },
       };

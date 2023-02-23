@@ -30,8 +30,8 @@ export const generateFilters = (products, company, category, color) => {
     }
   );
   let [companies, categories, colors] = [
-    ["", ...procompanies],
-    ["", ...procategories],
+    ["all", ...procompanies],
+    ["all", ...procategories],
     ["all", ...procolors],
   ];
 
