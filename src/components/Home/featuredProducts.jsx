@@ -1,4 +1,3 @@
-import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../shared/Loade";
 import { useProductsContext } from "../../context/ProductsContect";
@@ -7,11 +6,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
 import { formatPrice } from "../../utils/helpers";
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/autoplay";
-import "swiper/css/controller";
-import "./swiper.css";
+// import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/autoplay";
+// import "swiper/css/controller";
+// import "./swiper.css";
 
 const FeturedProducts = () => {
   const { feturedProducts: products, isProductsLoading: Loading } =
@@ -19,7 +18,7 @@ const FeturedProducts = () => {
 
   return (
     <section className="featured-products-section sec-wrapper">
-      <div className="container">
+      {/* <div className="container">
         <div className="featured-products-wrapper">
           <header></header>
           {products.length < 1 ? (
@@ -84,7 +83,7 @@ const FeturedProducts = () => {
             all products
           </Link>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

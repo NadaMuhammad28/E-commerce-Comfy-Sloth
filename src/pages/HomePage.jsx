@@ -7,7 +7,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import FeaturedProducts from "../components/Home/FeaturedProducts";
-// import Featured from "../components/Home/featuredProducts";
 const Home = () => {
   useEffect(() => {
     AOS.init({ duration: 800 });
