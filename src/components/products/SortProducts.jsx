@@ -2,18 +2,12 @@ import { useFilterContext } from "../../context/FilterProductsContext";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import ViewButtons from "./Filters/ViewButtons";
 import Search from "./Filters/Search";
-import { BiFilterAlt } from "react-icons/bi";
+import { FaFilter } from "react-icons/fa";
+import { BiSort } from "react-icons/bi";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-
+import { sortOptions } from "../../utils/constants";
 const SortProducts = () => {
-  const sortOptions = [
-    "",
-    "Price (Lowest)",
-    "Price (Highest)",
-    "Name (A-Z)",
-    "Name (Z-A)",
-  ];
   const {
     filteredProducts: products,
     handleSorting,
@@ -32,52 +26,89 @@ const SortProducts = () => {
         paddingX={2}
         // direction={{ xs: "column", md: "row" }}
       >
-        <Grid2 item xs={6} md={1.5}>
+        <Grid2 item xs={12} sm={3.5} md={1.5}>
           <ViewButtons />
         </Grid2>
 
-        <Grid2 item xl={2}>
-          <Search updateFilters={updateFilters} text={text} />
+        <Grid2
+          item
+          display={{ xs: "none", sm: "flex" }}
+          xs={12}
+          sm={8.5}
+          justifyContent={{ sm: "flex-end", md: "flex-start" }}
+          md={5.5}
+          lg={6}
+          container
+          direction={"row"}
+          alignItems="center"
+        >
+          <Grid2
+            item
+            lg={3}
+            container
+            justifyContent={{ xs: "flex-end", sm: "stretch" }}
+          >
+            <Search updateFilters={updateFilters} text={text} />
+          </Grid2>
+          <Grid2 item lg={9}>
+            <p className="search-res-len">{products.length} products found</p>
+          </Grid2>
         </Grid2>
 
-        {/*  */}
-        <Grid2 lg={3} xl={2}>
-          <p>{products.length} products found</p>
-        </Grid2>
-        {/* <Grid2 item xs={0} lg={2.5} xl={3}>
-          <hr />
-        </Grid2> */}
         <Grid2
           item
           container
           xs={8}
-          lg={5}
+          sm={9}
+          md={4}
+          lg={3.5}
           alignItems="center"
-          justifyContent={{ xs: "start", md: "flex-end" }}
+          paddingY={4}
+          // justifyContent={{ xs: "start", md: "flex-end" }}
         >
-          <form className="">
-            <label htmlFor="sort">Sort By</label>
-            <select id="sort" onChange={(e) => handleSorting(e)}>
+          <form className=" form-sort-wrapper">
+            <div className="sort-label">
+              <BiSort /> <span> sort by</span>
+            </div>
+            <Select
+              className="mui-select"
+              style={{
+                width: "100%",
+                textTransform: "capitalize",
+              }}
+              id="sort"
+              onChange={(e) => handleSorting(e)}
+              displayEmpty
+              inputProps={{ "aria-label": "Without label" }}
+            >
               {sortOptions.map((op) => {
                 return (
-                  <option key={op} name={op} value={op}>
+                  <MenuItem name={op} value={op} key={op}>
                     {op}
-                  </option>
+                  </MenuItem>
                 );
               })}
-            </select>
+            </Select>
           </form>
         </Grid2>
 
         {/* is filter modal open? */}
-        <Grid2 item xl={1} style={{ backgroundColor: "red" }}>
+        <Grid2
+          item
+          xs={4}
+          sm={3}
+          md={1}
+          container
+          justifyContent="flex-end"
+          padding={0}
+        >
           <button
             onClick={() => {
               showFliters();
             }}
             className="filter-modal-btn"
           >
-            <BiFilterAlt /> filter
+            <FaFilter /> <span>filter </span>
           </button>
         </Grid2>
       </Grid2>

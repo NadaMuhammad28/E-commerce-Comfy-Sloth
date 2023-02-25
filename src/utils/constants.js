@@ -39,6 +39,12 @@ export const services = [
   },
 ];
 
+export const sortOptions = [
+  "Price (Lowest)",
+  "Price (Highest)",
+  "Name (A-Z)",
+  "Name (Z-A)",
+];
 export const products_url = "https://course-api.com/react-store-products";
 
 export const single_product_url = `https://course-api.com/react-store-single-product?id=`;

@@ -8,7 +8,8 @@ import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { formatPrice } from "../utils/helpers";
 import EmptyCart from "../components/Cart/emptyCart";
 const Cart = () => {
-  const { cart, toggleAmount, totalPrice, shipping } = useCartContext();
+  const { cart, toggleAmount,     totalPrice,
+    shipping_fee : shipping } = useCartContext();
 
   const increaseAmount = (id) => {
     toggleAmount(id, "INCREMENT");

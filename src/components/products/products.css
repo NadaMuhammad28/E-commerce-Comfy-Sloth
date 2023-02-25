@@ -96,12 +96,55 @@
   align-items: center;
 }
 
+.form-sort-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.form-sort-wrapper .mui-select {
+  flex-basis: 60%;
+}
 .sort-wrapper form > select {
   padding: 1% 3%;
   background-color: transparent;
   border: 1px solid #222;
   border-radius: var(--radius);
   cursor: pointer;
+}
+/*filter button*/
+.filter-modal-btn,
+.sort-label {
+  font-size: 1.1rem;
+  color: var(--clr-grey-1);
+  text-transform: capitalize;
+  /* padding: 5% 2%; */
+}
+.filter-modal-btn span {
+  font-weight: 500;
+}
+
+.sort-label span {
+  font-weight: 500;
+}
+@media (max-width: 900px) {
+  .form-sort-wrapper {
+    justify-content: stretch !important;
+  }
+}
+@media (max-width: 500px) {
+  /* .form-sort-wrapper {
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  } */
+  .sort-label span {
+    display: none;
+  }
+  form-sort-wrapper .mui-select {
+    flex-basis: 70%;
+  }
+  .search-res-len {
+    display: none;
+  }
 }
 /*=========================================================================================================== */
 .filters-wrapper {
@@ -204,7 +247,7 @@
   text-transform: capitalize;
   font-size: 0.7rem;
 }
-
+/************************************************************************************************************/
 /* filter */
 .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
   padding: 2% !important;

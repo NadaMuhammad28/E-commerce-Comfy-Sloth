@@ -1,2 +1,4 @@
 [build]
-functions='./netlify-server-functions'
+command = "npm run build"
+functions = "functions"
+targetPort=8888

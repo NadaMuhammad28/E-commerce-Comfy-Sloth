@@ -23,7 +23,7 @@ const CartContext = ({ children }) => {
     cart: getFromLocalStorage("cart"),
     totalAmount: 0,
     totalPrice: 0,
-    shipping: 2,
+    shipping_fee: 2,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 

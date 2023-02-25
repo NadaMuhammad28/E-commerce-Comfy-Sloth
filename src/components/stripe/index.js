@@ -7,7 +7,7 @@ import {
   CardElement,
   Elements,
 } from "@stripe/react-stripe-js";
-import axios from "axios";
+import axios from 'axios'
 import { useUserContext } from "../../context/userContext";
 import { useCartContext } from "../../context/CartContext";
 import { formatPrice } from "../../utils/helpers";

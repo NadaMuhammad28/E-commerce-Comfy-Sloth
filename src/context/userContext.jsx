@@ -12,7 +12,7 @@ const UserContext = ({ children }) => {
       setMyUSer(false);
     }
   }, [user]);
-  console.log(user);
+  // console.log(user);
   return (
     <USerCon.Provider
       value={{
