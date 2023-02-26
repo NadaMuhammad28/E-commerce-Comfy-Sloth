@@ -14,13 +14,12 @@ import {
   formatPrice,
   Elements,
 } from "./index";
-console.log(import.meta.env.VITE_REACT_APP_STRIPE_PUBLIC_KEY);
 const promise = loadStripe(import.meta.env.VITE_REACT_APP_STRIPE_PUBLIC_KEY);
 
 //form
-const CheckOutForm = () => {
+const CheckOutForm = ({ isAddress }) => {
   const { myUser } = useUserContext();
-  const { cart, shipping_fee, totalPrice } = useCartContext();
+  const { cart, shipping_fee, totalPrice, clearCart } = useCartContext();
   const navigate = useNavigate();
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
@@ -79,10 +78,12 @@ const CheckOutForm = () => {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
+      clearCart();
+      navigate("/placed-order");
     }
   };
   const cardStyle = {
-    layout: "tabs",
+    // layout: "tabs",
     style: {
       base: {
         color: "#32325d",
@@ -102,7 +103,7 @@ const CheckOutForm = () => {
 
   //
   return (
-    <div>
+    <article className="stripe-checkout-wrapper">
       {succeeded ? (
         <article>
           <h4>Thank you</h4>
@@ -111,12 +112,16 @@ const CheckOutForm = () => {
         </article>
       ) : (
         <article>
-          <h4>Hello, {myUser && myUser.name}</h4>
           <p>Your total is {formatPrice(totalPrice)}</p>
           <p>Test Card Number: 4242 4242 4242 4242</p>
         </article>
       )}
-      <form id="payment-form" onSubmit={handleSubmit}>
+      {/* ============================================ */}
+      <form
+        id="payment-form"
+        onSubmit={handleSubmit}
+        // className={isAddress ? "payment-show" : "payment-hide"}
+      >
         <CardElement
           id="card-element"
           options={cardStyle}
@@ -124,7 +129,7 @@ const CheckOutForm = () => {
         />
         <button
           className="pay-stripe-checkout-btn"
-          disabled={processing || disabled || succeeded}
+          disabled={processing || disabled || succeeded || !isAddress}
           id="submit"
         >
           <span id="button-text">
@@ -146,10 +151,10 @@ const CheckOutForm = () => {
           Refresh the page to pay again.
         </p>
       </form>
-    </div>
+    </article>
   );
 };
-const StripeCheckOut = () => {
+const StripeCheckOut = ({ isAddress }) => {
   const appearance = {
     theme: "stripe",
   };
@@ -158,11 +163,10 @@ const StripeCheckOut = () => {
     appearance,
   };
   return (
-    <section className="sec-wrapper checkout-wrapper">
-      {/* <Elements stripe={promise} options={options}>
-        <CheckOutForm />
-      </Elements> */}
-    </section>
+    <Elements stripe={promise} options={options}>
+      {/* {isAddress && <CheckOutForm isAddress={isAddress} />} */}
+      <CheckOutForm isAddress={isAddress} />
+    </Elements>
   );
 };
 

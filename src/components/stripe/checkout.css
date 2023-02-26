@@ -1,25 +1,108 @@
+.checkout-wrapper {
+  /* height: 9vh; */
+  gap: 4rem;
+  /* align-items: center; */
+}
+
+.checkout-header {
+  margin-bottom: 1rem;
+}
+/* ================================================================ORDER============================================================================ */
+.order-summary-wrapper {
+  align-self: flex-start;
+  width: 40%;
+}
+.order-wrapper {
+  border-radius: 7px;
+  box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.order-item-container {
+  gap: 2rem;
+}
+.order-item-container > article {
+  padding: 2%;
+  gap: 2rem;
+}
+
+.order-item-info {
+  align-self: flex-start;
+}
+.order-item-info p {
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+.order-item-info p span {
+  color: var(--clr-grey-8);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.order-item-clr {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.order-img {
+  width: 100px;
+  min-width: 100px;
+  height: 80px;
+  min-height: 80px;
+}
+/*=========================================================*/
+
+.stripe-checkout-wrapper {
+  width: 100%;
+}
+
+.del-info-wrapper {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+/*=============================================================*/
+.result-message {
+  line-height: 22px;
+  font-size: 16px;
+}
+
+.del-info-form {
+  padding: 40px;
+  justify-content: space-between;
+  width: 70%;
+  border-radius: 7px;
+  box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.del-info-form .del-input {
+  flex-basis: 45%;
+  /* flex-grow: 1; */
+}
+.del-info-form .del-input .css-1pysi21-MuiFormLabel-root-MuiInputLabel-root {
+  top: 2% !important;
+}
 #payment-form {
-  width: 30vw;
-  align-self: center;
+  width: 70%;
+  /* align-self: center; */
   box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
     0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
   border-radius: 7px;
   padding: 40px;
-}
-/* input {
-  border-radius: 6px;
-  margin-bottom: 6px;
-  padding: 12px;
-  border: 1px solid rgba(50, 50, 93, 0.1);
-  max-height: 44px;
-  font-size: 16px;
-  width: 100%;
-  background: white;
-  box-sizing: border-box;
-} */
-.result-message {
-  line-height: 22px;
-  font-size: 16px;
+  animation: payment-card-show;
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .result-message a {
   color: rgb(89, 111, 214);
@@ -119,6 +202,15 @@
   -webkit-animation: loading 2s infinite ease;
   animation: loading 2s infinite ease;
 }
+@keyframes payment-card-show {
+  from {
+    transform: translateY(-20%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}
 @keyframes loading {
   0% {
     -webkit-transform: rotate(0deg);
@@ -142,5 +234,34 @@
     form {
       width: 80vw;
     }
+  }
+}
+
+@media (max-width: 948px) {
+  .del-info-form .del-input {
+    /* flex-grow: 1; */
+    /* min-width: 100%; */
+  }
+}
+@media (max-width: 760px) {
+  .checkout-wrapper {
+    align-items: center;
+  }
+  .order-summary-wrapper {
+    display: none;
+    /* width: auto; */
+  }
+  .del-info-form {
+    width: 80%;
+  }
+}
+@media (max-width: 610px) {
+  .del-info-form .del-input {
+    flex-basis: 80%;
+    flex-grow: 1;
+    align-self: center;
+  }
+  .del-info-form {
+    width: 100%;
   }
 }
