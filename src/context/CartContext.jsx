@@ -4,6 +4,7 @@ import {
   INCREASE_CART_COUNT,
   ADD_TO_CART,
   TOGGLE_AMOUNT,
+  CLEAR_CART,
 } from "../utils/actions";
 const CartData = React.createContext();
 export const writeToLocalStorage = (key, value) => {
@@ -38,8 +39,11 @@ const CartContext = ({ children }) => {
   const toggleAmount = (idColor, operation) => {
     dispatch({ type: TOGGLE_AMOUNT, payload: { idColor, operation } });
   };
+  const clearCart = () => {
+    dispatch({ type: CLEAR_CART });
+  };
   return (
-    <CartData.Provider value={{ ...state, addToCart, toggleAmount }}>
+    <CartData.Provider value={{ ...state, addToCart, toggleAmount, clearCart }}>
       {children}
     </CartData.Provider>
   );

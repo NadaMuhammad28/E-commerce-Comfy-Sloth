@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { NavBar, Footer, SideBar } from "./components/shared/index";
+import ORderDone from "./components/stripe/OrderDone";
 import {
   Home,
   About,
@@ -32,7 +33,7 @@ function App() {
               </PrivateRoute>
             }
           />
-          {/* <Route path="/checkout" element={<CheckOut />} /> */}
+          <Route path="/placed-order" element={<ORderDone />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />

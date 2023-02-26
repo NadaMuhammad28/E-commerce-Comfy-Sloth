@@ -2,6 +2,7 @@ import {
   INCREASE_CART_COUNT,
   ADD_TO_CART,
   TOGGLE_AMOUNT,
+  CLEAR_CART,
 } from "../utils/actions";
 import { writeToLocalStorage } from "../context/CartContext";
 export const reducer = (state, action) => {
@@ -72,6 +73,16 @@ export const reducer = (state, action) => {
       });
       updatedCart = updatedCart.filter((el) => el.amount !== 0);
       return { ...state, cart: updatedCart };
+    }
+
+    case CLEAR_CART: {
+      return {
+        ...state,
+        cart: [],
+        totalAmount: 0,
+        totalPrice: 0,
+        shipping_fee: 2,
+      };
     }
 
     default:

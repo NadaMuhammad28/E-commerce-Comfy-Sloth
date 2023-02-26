@@ -1,12 +1,12 @@
 import EmptyCart from "../components/Cart/emptyCart";
-import StripeCheckOut from "../components/stripe/StripeCheckOut";
+import CheckOutForm from "../components/stripe//address.Details";
 import { useCartContext } from "../context/CartContext";
 import "../components/stripe/checkout.css";
 const CheckOut = () => {
   const { cart } = useCartContext();
 
   return (
-    <main>{cart && cart.length < 1 ? <EmptyCart /> : <StripeCheckOut />}</main>
+    <main>{cart && cart.length < 1 ? <EmptyCart /> : <CheckOutForm />}</main>
   );
 };
 

@@ -7,8 +7,13 @@ const UserContext = ({ children }) => {
   const [myUSer, setMyUSer] = useState(null);
 
   useEffect(() => {
-    if (isAuthenticated) setMyUSer(user);
-    else {
+    if (isAuthenticated) {
+      console.log("authenticated");
+      setMyUSer({
+        name: `${user.given_name} ${user.family_name}`,
+        email: user.email,
+      });
+    } else {
       setMyUSer(false);
     }
   }, [user]);
