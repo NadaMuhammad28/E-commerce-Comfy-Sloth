@@ -104,18 +104,6 @@ const CheckOutForm = ({ isAddress }) => {
   //
   return (
     <article className="stripe-checkout-wrapper">
-      {succeeded ? (
-        <article>
-          <h4>Thank you</h4>
-          <h4>Your payment was successful!</h4>
-          <h4>Redirecting to home page shortly</h4>
-        </article>
-      ) : (
-        <article>
-          <p>Your total is {formatPrice(totalPrice)}</p>
-          <p>Test Card Number: 4242 4242 4242 4242</p>
-        </article>
-      )}
       {/* ============================================ */}
       <form
         id="payment-form"
@@ -151,6 +139,17 @@ const CheckOutForm = ({ isAddress }) => {
           Refresh the page to pay again.
         </p>
       </form>
+      {succeeded ? (
+        <article>
+          <h4>Thank you</h4>
+          <h4>Your payment was successful!</h4>
+          <h4>Redirecting to home page shortly</h4>
+        </article>
+      ) : (
+        <article>
+          <p>Test Card Number: 4242 4242 4242 4242</p>
+        </article>
+      )}
     </article>
   );
 };

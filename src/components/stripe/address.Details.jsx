@@ -19,21 +19,17 @@ const AddressDetails = () => {
     e.preventDefault();
   };
   const handleChange = (e) => {
-    let key = e.target.name;
-    let val = e.target.value;
-    setDetails({ ...details, [key]: val });
-
-    if (
-      details.email &&
-      details.name &&
-      details.city &&
-      details.flatnumber &&
-      details.floornumber &&
-      details.mobileNumber &&
-      details.address
-    ) {
-      setIsfilled(false);
-    }
+    setDetails({ ...details, [e.target.name]: e.target.value });
+    details.email &&
+    details.name &&
+    details.city &&
+    details.flatnumber &&
+    details.floornumber &&
+    details.mobileNumber &&
+    details.address
+      ? setIsfilled(false)
+      : setIsfilled(true);
+    console.log(details);
   };
 
   return (
@@ -41,11 +37,15 @@ const AddressDetails = () => {
       <div className="container ">
         <div className="d-flex wrapper aside-form">
           <div className=" d-flex-col checkout-wrapper">
-            <article>
+            <article className="del-info-wrapper">
               <header className="checkout-header">
                 <h5>delivery information</h5>
               </header>
-              <form onSubmit={handleSubmit} className="del-info-form">
+              <form
+                onSubmit={handleSubmit}
+                className="del-info-form"
+                onChange={handleChange}
+              >
                 <TextField
                   id="outlined-basic"
                   label="Name"
@@ -53,7 +53,7 @@ const AddressDetails = () => {
                   size="small"
                   name="name"
                   value={details.name}
-                  onChange={(e) => handleChange(e)}
+                  // //onChange={(e) => handleChange(e)}
                   className="del-input"
                 />
 
@@ -64,7 +64,7 @@ const AddressDetails = () => {
                   size="small"
                   name="email"
                   value={details.email}
-                  onChange={(e) => handleChange(e)}
+                  // onChange={(e) => handleChange(e)}
                   className="del-input"
                 />
 
@@ -75,7 +75,7 @@ const AddressDetails = () => {
                   size="small"
                   name="mobileNumber"
                   value={details.mobileNumber}
-                  onChange={(e) => handleChange(e)}
+                  // onChange={(e) => handleChange(e)}
                   className="del-input"
                 />
 
@@ -86,7 +86,7 @@ const AddressDetails = () => {
                   size="small"
                   name="city"
                   value={details.city}
-                  onChange={(e) => handleChange(e)}
+                  // onChange={(e) => handleChange(e)}
                   className="del-input"
                 />
 
@@ -97,7 +97,7 @@ const AddressDetails = () => {
                   size="small"
                   name="address"
                   value={details.address}
-                  onChange={(e) => handleChange(e)}
+                  //onChange={(e) => handleChange(e)}
                   className="del-input"
                 />
 
@@ -108,7 +108,7 @@ const AddressDetails = () => {
                   size="small"
                   name="floornumber"
                   value={details.floornumber}
-                  onChange={(e) => handleChange(e)}
+                  //onChange={(e) => handleChange(e)}
                   className="del-input"
                 />
 
@@ -119,7 +119,7 @@ const AddressDetails = () => {
                   size="small"
                   name="flatnumber"
                   value={details.flatnumber}
-                  onChange={(e) => handleChange(e)}
+                  //onChange={(e) => handleChange(e)}
                   className="del-input"
                 />
                 <div>

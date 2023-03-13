@@ -9,6 +9,7 @@ import { validate } from "react-email-validator";
 import { useForm, ValidationError } from "@formspree/react";
 import { useState } from "react";
 import { BiErrorCircle } from "react-icons/bi";
+
 import Grid2 from "@mui/material/Unstable_Grid2";
 
 const NewsLetter = () => {
@@ -42,9 +43,13 @@ const NewsLetter = () => {
 
   return (
     <section className="contact-section ">
+      <ToastContainer />
       <div className="container">
         <div className="contact-section-wrapper">
-          <h3 data-aos="fade-right"> Join our newsletter and get 20% off</h3>
+          <h3 initial={{ x: -100 }} animate={{ x: 0 }}>
+            {" "}
+            Join our newsletter and get 20% off
+          </h3>
           <div className="contact-form-wrapper">
             <Grid2
               container
@@ -52,14 +57,14 @@ const NewsLetter = () => {
               direction={{ xs: "column", md: "row" }}
             >
               <Grid2 item md={6}>
-                <p data-aos="fade-right">
+                <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Placeat sint unde quaerat ratione soluta veniam provident
                   adipisci cumque eveniet tempore?
                 </p>
               </Grid2>
               <Grid2 item md={6}>
-                <form onSubmit={handlevalidation} data-aos="fade-left">
+                <form onSubmit={handlevalidation}>
                   <input
                     type="text"
                     placeholder="enter email"

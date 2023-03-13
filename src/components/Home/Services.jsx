@@ -9,7 +9,7 @@ const Services = () => {
           <header>
             <Grid2 container spacing={{ xs: 3 }}>
               <Grid2 item md={6}>
-                <h3 data-aos="fade-right">
+                <h3>
                   custom furniture <br />
                   built only for you
                 </h3>
@@ -21,7 +21,7 @@ const Services = () => {
                 alignItems="center"
                 justifyContent="center"
               >
-                <p data-aos="fade-left">
+                <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
                   quisquam saepe id reiciendis sunt, repudiandae libero amet rem
                   quia quod?
@@ -37,11 +37,7 @@ const Services = () => {
                   let { Icon, title, text, id } = card;
                   return (
                     <Grid2 item md={4} key={id}>
-                      <article
-                        className="serv-card"
-                        data-aos="fade-up"
-                        data-aos-delay={index * 10 + 100}
-                      >
+                      <article className="serv-card">
                         <span className="serv-icon">
                           <Icon />
                         </span>

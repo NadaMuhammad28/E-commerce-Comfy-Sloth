@@ -5,7 +5,7 @@ const OrderSummary = () => {
   const { cart, totalPrice, shipping_fee } = useCartContext();
   console.log(cart);
   return (
-    <div className="order-summary-wrapper ">
+    <aside className="order-summary-wrapper ">
       <header className="checkout-header">
         <h5>order summary</h5>
       </header>
@@ -27,8 +27,8 @@ const OrderSummary = () => {
                         style={{ backgroundColor: item.color }}
                       ></span>
                     </p>
-                    <p>
-                      {formatPrice(item.price)}
+                    <p className="order-item-price">
+                      <p> {formatPrice(item.price)} </p>
                       <span>
                         <small>{" x"} </small>
                         <strong>{item.amount}</strong>
@@ -40,8 +40,25 @@ const OrderSummary = () => {
               </div>
             );
           })}
+        <div>
+          <div className="reatil-price">
+            <span>retail price</span>
+            <h5> {formatPrice(totalPrice)}</h5>
+          </div>
+          <div className="shipping-fee">
+            <span>Shipping fees</span>
+            <h5> {formatPrice(shipping_fee)}</h5>
+          </div>
+
+          <hr className="p-bottom-border " />
+
+          <div className="order-total">
+            <span>order total</span>
+            <h5> {formatPrice(shipping_fee + totalPrice)}</h5>
+          </div>
+        </div>
       </div>
-    </div>
+    </aside>
   );
 };
 
