@@ -45,6 +45,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  position: relative;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
 }
@@ -58,10 +59,12 @@ ul {
   list-style: none;
 }
 li a {
-  color: var(--txt-clr-black);
+  color: var(--txt-clr-1);
 }
 a,
 a:visited {
+  color: var(--txt-clr-1);
+
   text-decoration: none;
 }
 .sec-wrapper {
@@ -96,7 +99,10 @@ a:visited {
   display: flex;
   flex-direction: column;
 }
-
+hr {
+  color: var(--clr-grey-8);
+  border-color: var(--clr-grey-8);
+}
 h1,
 h2,
 h3,
@@ -106,12 +112,13 @@ h6,
 a,
 li {
   text-transform: capitalize;
+  color: var(--txt-clr-1);
 }
 h1 {
-  font-size: 4rem;
+  font-size: 4em;
 }
 h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 h3 {
   font-size: 2rem;
@@ -158,41 +165,47 @@ p {
 }
 
 .btn {
+  display: inline-block;
   text-align: center;
-  color: #fff;
   padding: 0.75rem 0.9rem;
   font-size: 1rem;
   cursor: pointer;
   letter-spacing: var(--spacing);
-  margin: 1% 0;
+  margin: 3rem 0;
   border-radius: 5px;
   text-transform: uppercase !important;
   transition: all 0.3s linear;
+  border: 2px solid var(--txt-clr-2);
+  background-color: transparent;
+  color: var(--txt-clr-1);
   font-weight: 600;
-  background-color: var(--txt-clr-2);
 }
 .btn:hover {
-  background-color: var(--txt-clr-2-dark);
+  color: #fff !important;
+  background-color: var(--txt-clr-2);
+}
+.anim-btn {
+  animation: txt-slide-in ease-in-out;
+  animation-duration: 0.6s;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+  animation-delay: 0.4s;
 }
 /*====================================ABOUT===========================================================================================*/
 .about-section {
-  height: 100vh;
+  min-height: 100vh;
 }
 .about-header {
   margin: 0;
-  /* background-image: url(assets/aboutBG.jpg); */
   min-height: 60vh;
   height: 50vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  /* position: relative; */
   text-align: center;
-  /* width: 100vw; */
   background-size: cover;
 }
 .abt-overlay {
-  /* width: 100vw; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -209,7 +222,7 @@ p {
   animation-fill-mode: both;
   color: rgb(230, 230, 230);
   text-transform: uppercase;
-  font-size: 4rem !important;
+  /* font-size: 4rem; */
 }
 
 .title-header-underline,
@@ -225,22 +238,15 @@ p {
   border-color: var(--txt-clr-2);
 }
 
+/* content */
 .about-content {
   padding: var(--section-padding);
 }
-.our-story {
-  /* align-items: center; */
-  display: flex;
-  gap: 4rem;
-  width: 100%;
-}
 
-.our-story > img {
-  /* max-width: 100%; */
-  height: 40rem;
+.about-content img {
+  max-width: 100%;
   object-fit: cover;
   border-radius: var(--radius);
-  /* height: 40rem; */
 }
 .abt-story-content {
   width: 100%;
@@ -255,29 +261,12 @@ p {
   word-wrap: break-word;
   word-break: break-all;
 }
-@media (max-width: 960px) {
-  .our-story img {
-    height: 25rem;
+@media (max-width: 900px) {
+  .abt-story-content p {
+    width: 100%;
   }
 }
-@media (max-width: 855px) {
-  .our-story {
-    flex-direction: column-reverse;
-  }
-  .our-story img {
-    justify-self: center;
-    align-self: center;
-    height: auto;
-  }
-}
-@media (max-width: 364px) {
-  h2 {
-    font-size: 1.5rem !important;
-  }
-  .about-header h2 {
-    font-size: 3rem;
-  }
-}
+
 /*=====================================ENDOF ABOUT==========================================================================================*/
 
 /*=====================================PRODUCTS PAGE==========================================================================================*/
@@ -385,19 +374,27 @@ p {
 /*=======================================================================================
 ------------------------------END OF FEATURED PRODUCTS SECTION-----------------------------------------
 ========================================================================================*/
-
+.p-subtotal,
+.order-item-price p {
+  /* display: inline-block; */
+  color: var(--txt-clr-1);
+  font-weight: 500;
+}
 /*=====================================ENDOF PRODUCTS PAGE==========================================================================================*/
 
 /*=====================================FOOTER==========================================================================================*/
-footer {
+.main-footer {
   width: 100%;
   background-color: #222;
   padding: 2%;
-
   text-align: center;
   text-transform: capitalize;
   color: var(--txt-clr-3);
   font-weight: 600;
+  bottom: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 /*=====================================ENDOF FOOTER==========================================================================================*/
@@ -451,15 +448,43 @@ footer {
 /*=====================================ENDOF FOOTER==========================================================================================*/
 /*GLOBAL MEDIA QUERIES**/
 /*h3*/
+@media (max-width: 955px) {
+  h1 {
+    font-size: 3.3em;
+  }
+  h2 {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2.8em;
+  }
+  h2 {
+    font-size: 2.1em;
+  }
+}
 @media (max-width: 630px) {
   h3 {
     font-size: 1.75em;
   }
+  h2 {
+    font-size: 2em;
+  }
+  h4 {
+    font-size: 1.1em;
+  }
 }
 
 @media (max-width: 550px) {
+  h1 {
+    font-size: 2em;
+  }
   h3 {
     font-size: 1.3em;
+  }
+  h2 {
+    font-size: 1.7em;
   }
 }
 
