@@ -4,12 +4,15 @@ import Grid2 from "@mui/material/Unstable_Grid2";
 import "./cart.css";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
-// import FormatPrice from "../components/products/FormatPrice";
 import { formatPrice } from "../utils/helpers";
 import EmptyCart from "../components/Cart/emptyCart";
 const Cart = () => {
-  const { cart, toggleAmount,     totalPrice,
-    shipping_fee : shipping } = useCartContext();
+  const {
+    cart,
+    toggleAmount,
+    totalPrice,
+    shipping_fee: shipping,
+  } = useCartContext();
 
   const increaseAmount = (id) => {
     toggleAmount(id, "INCREMENT");
@@ -17,17 +20,19 @@ const Cart = () => {
   const decreaseAmount = (id) => {
     toggleAmount(id, "DECREMENT");
   };
-  const columns = [{ field: "name", width: 150, editable: false }];
-  if (cart && cart.length < 1) return <EmptyCart />;
 
+  // empty cart
+  if (cart && cart.length < 1) return <EmptyCart />;
+  // cart
   return (
-    <main className="sec-wrapper cart-pg-wrapper">
+    <main className="sec-wrapper cart-pg-wrapper ">
       <div className="container">
         <Grid2
           container
           spacing={{ xs: 3, sm: 1, md: 2 }}
           padding="0"
           direction={{ xs: "column", sm: "column", md: "row" }}
+          paddingBottom={6}
         >
           <Grid2 item md={8}>
             <div className="cart-list-wrapper">
@@ -40,60 +45,62 @@ const Cart = () => {
                 {cart &&
                   cart.map((product) => {
                     return (
-                      <Grid2 item xs={12}>
-                        <div className="cart-item-wrapper">
-                          <Grid2 container>
-                            {/* image */}
-                            <Grid2 item xs={3} lg={2}>
-                              <Link to={`/products/${product.id}`}>
-                                <img
-                                  src={product.image}
-                                  className="p-img-cart"
-                                />
-                              </Link>
-                            </Grid2>
-                            {/* name */}
-                            <Grid2 item xs={4} sm={3} md={4}>
-                              <div className="p-title-cart">
-                                <h6>{product.name}</h6>
-                                <p>
-                                  {"color: "}
-                                  <span
-                                    style={{ background: product.color }}
-                                  ></span>
-                                </p>
-                              </div>
-                            </Grid2>
-                            {/* amount */}
-                            <Grid2 item xs={2}>
-                              <div className="p-amount-container">
-                                <div className="p-amount">
-                                  <button
-                                    onClick={() =>
-                                      decreaseAmount(product.idColor)
-                                    }
-                                  >
-                                    <AiOutlineMinus />
-                                  </button>
-                                  <span>{product.amount} </span>
-                                  <button
-                                    onClick={() =>
-                                      increaseAmount(product.idColor)
-                                    }
-                                  >
-                                    <AiOutlinePlus />
-                                  </button>
-                                </div>
-                              </div>
-                            </Grid2>
-                            {/* subtotal */}
-                            <Grid2 item xs={3}>
-                              <small className="p-subtotal">
-                                {formatPrice(product.price * product.amount)}
-                              </small>
-                            </Grid2>
-                          </Grid2>
-                        </div>
+                      <Grid2
+                        item
+                        xs={12}
+                        key={product.id}
+                        paddingY={2}
+                        alignItems="center"
+                        // style={{ background: "red" }}
+                        container
+                      >
+                        {/* image */}
+                        <Grid2 item xs={2} lg={2}>
+                          <Link to={`/products/${product.id}`}>
+                            <img
+                              src={product.image}
+                              className="p-img-cart"
+                              alt={product.name}
+                            />
+                          </Link>
+                        </Grid2>
+                        {/* name */}
+                        <Grid2 item xs={5} sm={3} md={4}>
+                          <div className="p-title-cart">
+                            <h6>{product.name}</h6>
+                            <p>
+                              {"color: "}
+                              <span
+                                style={{ background: product.color }}
+                              ></span>
+                            </p>
+                          </div>
+                        </Grid2>
+                        {/* amount */}
+                        <Grid2 item xs={3}>
+                          <div className="p-amount-container">
+                            <div className="p-amount">
+                              <button
+                                onClick={() => decreaseAmount(product.idColor)}
+                              >
+                                <AiOutlineMinus />
+                              </button>
+                              <span>{product.amount} </span>
+                              <button
+                                onClick={() => increaseAmount(product.idColor)}
+                              >
+                                <AiOutlinePlus />
+                              </button>
+                            </div>
+                          </div>
+                        </Grid2>
+                        {/* subtotal */}
+                        <Grid2 item xs={2}>
+                          <small className="p-subtotal">
+                            {formatPrice(product.price * product.amount)}
+                          </small>
+                        </Grid2>
+
                         <hr className="p-bottom-border" />
                       </Grid2>
                     );
@@ -121,7 +128,7 @@ const Cart = () => {
                 <h5> {formatPrice(shipping + totalPrice)}</h5>
               </div>
 
-              <Link to="/checkout" className="btn shop-btn checkout-btn">
+              <Link to="/checkout" className="btn  checkout-btn">
                 to checkout
               </Link>
             </aside>

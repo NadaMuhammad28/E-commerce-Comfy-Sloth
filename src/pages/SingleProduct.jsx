@@ -10,7 +10,6 @@ import "../components/singleProduct/product.css";
 //single product components
 import { Images, Stars, AddToCart } from "../components/singleProduct/index";
 import FormatPrice from "../components/products/FormatPrice";
-import { Grid } from "@mui/material";
 const SingleProduct = () => {
   const navigate = useNavigate();
   const {
@@ -45,13 +44,12 @@ const SingleProduct = () => {
     images,
     description,
     name,
-    colors,
   } = product;
   return (
     <main className="sec-wrapper">
       <div className="container">
-        <section className="product-wrapper">
-          <Grid2 container spacing={6}>
+        <section className="wrapper">
+          <Grid2 container gap={{ xs: 4, md: 5 }}>
             <Grid2 item xs={12} md={5}>
               <Images images={images} />
             </Grid2>

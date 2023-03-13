@@ -1,22 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,400&display=swap");
 /****************************INTRO SEC****************************************************/
 .intro-sec {
-  background-color: #f5f4d1;
-  min-height: 40vh;
-  height: 80vh !important;
+  background-color: #f1f1bd;
+  min-height: 70vh;
+  background: url(https://wpbingosite.com/wordpress/funio/wp-content/uploads/2020/12/img8-5.jpg);
+  /* background: url(https://wpbingosite.com/wordpress/funio/wp-content/uploads/2020/12/slider8-1.jpg); */
+  max-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 10em !important;
+  position: relative;
+  background-size: contain 100vh;
 }
 
-.intro-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 .intro-title-wrapper {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-around; */
-  gap: 1em;
-  /* flex-basis: 30em; */
+  /* text-align: center; */
 }
 .intro-title-wrapper h1 {
   font-family: "Poppins", sans-serif;
@@ -24,6 +23,7 @@
   animation: txt-slide-in ease-in-out;
   animation-duration: 0.6s;
   animation-fill-mode: both;
+  /* z-index: 3; */
 }
 .intro-title-wrapper h1 > span {
   display: block;
@@ -41,7 +41,6 @@
 }
 
 .shop-btn {
-  width: 8em;
   background-color: var(--txt-clr-2);
   animation-delay: 0.4s;
 }
@@ -87,39 +86,41 @@
   }
 }
 
-/*
-@media (max-width: 1043px) {
-  h1 {
-    font-size: 3rem !important;
-  }
-
+/* @media (max-width: 720px) { */
+.intro-overlay {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
-@media (max-width: 900px) {
-  .intro-sec-img-wrapper {
-    --translationy: 18vh;
-    width: 45rem;
-  }
-  .intro-title-wrapper {
-    flex-basis: 35em;
-  }
+.intro-title-wrapper h1 {
+  color: #fafafa;
 }
-@media (max-width: 800px) {
-  .intro-sec-img-wrapper {
-    --translationy: 18vh;
-    width: 50rem;
-  }
-  .intro-title-wrapper {
-    flex-basis: 45em;
-  }
+.intro-title-wrapper h1 span > span {
+  color: #e7ac8c;
 }
 
-*/
+.shop-btn {
+  border-color: #e7ac8c !important;
+  color: #f1f1bd !important ;
+}
+.shop-btn:hover,
+.shop-btn:active {
+  background-color: #e7ac8c !important;
+  color: #f1f1bd !important ;
+}
+.intro-title-wrapper p {
+  color: #fbfbfb !important ;
+}
+
 /*==============================================END OF INTRO SEC=================================================================*/
 /*===============================================START OF SERVICES SEC========================================*/
 
 .services-sec {
   /* height: 100vh; */
-  background-color: rgb(146, 108, 80);
+  background-color: #fafafa;
   width: 100%;
   padding: var(--section-padding);
   overflow: hidden;
@@ -145,7 +146,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #ab7a5f;
+  /* background-color: #ab7a5f; */
   flex-direction: column;
   padding: 2.5rem 2rem;
   gap: 0.9rem;
@@ -179,9 +180,9 @@
 ========================================================================================*/
 
 .contact-section {
-  padding: var(--section-padding);
+  /* padding: var(--section-padding); */
   overflow: hidden;
-  height: 16em;
+  min-height: 20vh;
 }
 .contact-section h3 {
   color: var(--txt-clr-1);
@@ -193,9 +194,13 @@
   gap: 2rem;
   flex-direction: column;
 }
+.contact-section-wrapper h3 {
+  padding-top: 5rem;
+}
 
 .contact-form-wrapper {
   width: 100%;
+  padding-bottom: 5rem;
 }
 
 .contact-form-wrapper form {
