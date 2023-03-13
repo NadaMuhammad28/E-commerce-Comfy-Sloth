@@ -180,7 +180,7 @@
 ========================================================================================*/
 
 .contact-section {
-  /* padding: var(--section-padding); */
+  padding: var(--section-padding);
   overflow: hidden;
   min-height: 20vh;
 }
@@ -195,7 +195,7 @@
   flex-direction: column;
 }
 .contact-section-wrapper h3 {
-  padding-top: 5rem;
+  /* padding-top: 5rem; */
 }
 
 .contact-form-wrapper {

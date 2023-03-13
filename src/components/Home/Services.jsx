@@ -3,9 +3,9 @@ import { services } from "../../utils/constants";
 
 const Services = () => {
   return (
-    <section className="services-sec ">
+    <section className="services-sec">
       <div className="container ">
-        <div className="serv-sec-wrapper">
+        <div className="serv-sec-wrapper ">
           <header>
             <Grid2 container spacing={{ xs: 3 }}>
               <Grid2 item md={6}>
