@@ -1,7 +1,7 @@
 import EmptyCart from "../components/Cart/emptyCart";
-import CheckOutForm from "../components/stripe//address.Details";
+import CheckOutForm from "../components/stripe/CheckOutFormWrapper";
 import { useCartContext } from "../context/CartContext";
-import "../components/stripe/checkout.css";
+// import "../components/stripe/checkout.css";
 const CheckOut = () => {
   const { cart } = useCartContext();
 

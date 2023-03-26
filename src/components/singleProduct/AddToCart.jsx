@@ -3,10 +3,26 @@ import Quantity from "./productQuantity";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
+import { ToastContainer, toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const AddtoCart = ({ product }) => {
   const { addToCart } = useCartContext();
   const [clrIndex, setClrIndex] = useState(0);
   const [amount, setAmount] = useState(1);
+  //for toast
+  const notify = () =>
+    toast.success(`${amount} added to cart`, {
+      position: "top-right",
+      autoClose: 4000,
+      transition: Flip,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   const increaseAmount = () => {
     if (amount < product.stock) {
       setAmount(amount + 1);
@@ -44,7 +60,10 @@ const AddtoCart = ({ product }) => {
         decreaseAmount={decreaseAmount}
       />
       <Link
-        onClick={() => addToCart(addedProduct)}
+        onClick={() => {
+          addToCart(addedProduct);
+          notify();
+        }}
         className="btn single-adtocart-btn"
       >
         Add to cart

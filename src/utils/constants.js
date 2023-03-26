@@ -40,6 +40,7 @@ export const services = [
 ];
 
 export const sortOptions = [
+  "",
   "Price (Lowest)",
   "Price (Highest)",
   "Name (A-Z)",

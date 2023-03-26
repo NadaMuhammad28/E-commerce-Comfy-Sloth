@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import Loader from "../shared/Loade";
+import Grid2 from "@mui/material/Unstable_Grid2";
+
 import { useProductsContext } from "../../context/ProductsContect";
 //SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,7 +17,35 @@ const FeturedProducts = () => {
     <section className="featured-products-section sec-wrapper">
       <div className="container">
         <div className="featured-products-wrapper">
-          <header></header>
+          <header>
+            <Grid2 container spacing={{ xs: 3, md: 0 }}>
+              <Grid2 item md={6}>
+                <h3>
+                  Featured Products
+                  <span className="sec-subtitle" style={{ fontSize: "65%" }}>
+                    Top Picks of the Season
+                  </span>
+                </h3>
+              </Grid2>
+              <Grid2
+                item
+                md={6}
+                alignItems="center"
+                justifyContent="center"
+                container
+              >
+                {/* <div className="d-flex p-center"> */}
+                <Grid2 item>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Atque quisquam saepe id reiciendis sunt, repudiandae libero
+                    amet rem quia quod?
+                  </p>
+                  {/* </div> */}
+                </Grid2>
+              </Grid2>
+            </Grid2>
+          </header>
           {products.length < 1 ? (
             <Loader />
           ) : (

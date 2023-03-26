@@ -16,6 +16,7 @@ const PrivateRoute = ({ children, ...rest }) => {
     myUser,
   } = useUserContext();
   if (isLoading) return <Loader />;
+  //if user
   if (user) {
     return children;
   } else {

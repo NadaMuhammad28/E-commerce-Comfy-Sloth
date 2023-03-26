@@ -8,24 +8,26 @@ const ProductsPage = () => {
   const { isFiltersModalOpen } = useFilterContext();
 
   return (
-    <section className="products sec-wrapper container">
-      <Grid2
-        container
-        spacing={{ xs: 3 }}
-        direction="column"
-        style={{ width: "100%" }}
-      >
-        {/* filters */}
-        <Grid2 item xs={12}>
-          <SortProducts />
-        </Grid2>
+    <section className="products-wrapper sec-wrapper">
+      <div className="container">
+        <Grid2
+          container
+          sx={{ xs: 0 }}
+          direction="column"
+          style={{ width: "100%" }}
+        >
+          {/* filters */}
+          <Grid2 item xs={12}>
+            <SortProducts />
+          </Grid2>
 
-        <Grid2 item xs={12}>
-          <ProductsList />
+          <Grid2 item xs={12}>
+            <ProductsList />
+          </Grid2>
         </Grid2>
-      </Grid2>
-      {isFiltersModalOpen && <div className="overlay"></div>}
-      {isFiltersModalOpen && <FiltersModal />}
+        {isFiltersModalOpen && <div className="overlay"></div>}
+        {isFiltersModalOpen && <FiltersModal />}
+      </div>
     </section>
   );
 };

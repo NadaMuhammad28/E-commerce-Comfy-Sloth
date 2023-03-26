@@ -1,15 +1,26 @@
 import about from "../assets/hero-bcg.jpeg";
 import bg from "../assets/aboutBG.jpg";
+import placeHolder from "../assets/About_placeHolder.jpg";
 import Loader from "../components/shared/Loade";
 import Grid2 from "@mui/material/Unstable_Grid2";
+import { useState } from "react";
 const About = () => {
   if (!bg) return <Loader />;
+  const [imageLoaded, setImageLoaded] = useState(false);
   return (
     <main className="about-sec">
       <header
         className="about-header"
-        style={{ backgroundImage: `url(${bg})` }}
+        style={{
+          backgroundImage: imageLoaded ? `url(${bg})` : `url(${placeHolder})`,
+        }}
       >
+        <img
+          src={bg}
+          alt="d"
+          onLoad={() => setImageLoaded(true)}
+          style={{ display: "none" }}
+        />
         <div className="abt-overlay">
           <h2>About us</h2>
           <hr className="title-header-underline" />

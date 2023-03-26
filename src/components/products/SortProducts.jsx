@@ -3,14 +3,10 @@ import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import ViewButtons from "./Filters/ViewButtons";
 import Search from "./Filters/Search";
 import { FaFilter } from "react-icons/fa";
-import { BiSort } from "react-icons/bi";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import { sortOptions } from "../../utils/constants";
+import Sort from "./Filters/Sort";
 const SortProducts = () => {
   const {
     filteredProducts: products,
-    handleSorting,
     showFliters,
     updateFilters,
     filters,
@@ -18,17 +14,18 @@ const SortProducts = () => {
   let { text } = filters;
 
   return (
-    <header className="sort-wrapper">
+    <header className="filters-wrapper">
       <Grid2
+        style={{ width: "100%" }}
         alignItems="center"
         container
         spacing={1}
-        paddingX={2}
-        // direction={{ xs: "column", md: "row" }}
       >
-        <Grid2 item xs={12} sm={3.5} md={1.5}>
+        {/* -----------------------------------VIEW------------------------------------------------- */}
+        <Grid2 item xs={12} sm={3.5} md={1.5} paddingY={{ xs: 2, md: "auto" }}>
           <ViewButtons />
         </Grid2>
+        {/* ------------------------------------SEARCH------------------------------------------------ */}
 
         <Grid2
           item
@@ -50,57 +47,43 @@ const SortProducts = () => {
           >
             <Search updateFilters={updateFilters} text={text} />
           </Grid2>
-          <Grid2 item lg={9}>
+          <Grid2 item lg={9} paddingX={2}>
             <p className="search-res-len">{products.length} products found</p>
           </Grid2>
         </Grid2>
+        {/* ------------------------------------------------------------------------------------ */}
+        {/* -----------------------------------SORT------------------------------------------------- */}
+        {/* ------------------------------------------------------------------------------------ */}
 
         <Grid2
           item
           container
           xs={8}
-          sm={9}
+          sm={7}
           md={4}
           lg={3.5}
           alignItems="center"
-          paddingY={4}
+          paddingY={{ xs: 2, md: "auto" }}
           // justifyContent={{ xs: "start", md: "flex-end" }}
         >
-          <form className=" form-sort-wrapper">
-            <div className="sort-label">
-              <BiSort /> <span> sort by</span>
-            </div>
-            <Select
-              className="mui-select"
-              style={{
-                width: "100%",
-                textTransform: "capitalize",
-              }}
-              id="sort"
-              onChange={(e) => handleSorting(e)}
-              displayEmpty
-              inputProps={{ "aria-label": "Without label" }}
-            >
-              {sortOptions.map((op) => {
-                return (
-                  <MenuItem name={op} value={op} key={op}>
-                    {op}
-                  </MenuItem>
-                );
-              })}
-            </Select>
-          </form>
+          <Sort />
         </Grid2>
+        {/* ------------------------------------------------------------------------------------ */}
+        {/* ------------------------------------------------------------------------------------ */}
+        {/* ------------------------------------------------------------------------------------ */}
+        {/* ------------------------------------------------------------------------------------ */}
+        {/* ------------------------------------------------------------------------------------ */}
 
         {/* is filter modal open? */}
         <Grid2
           item
           xs={4}
-          sm={3}
+          sm={5}
           md={1}
           container
           justifyContent="flex-end"
-          padding={0}
+          container
+          paddingY={{ xs: 2, md: "auto" }}
         >
           <button
             onClick={() => {
@@ -111,6 +94,8 @@ const SortProducts = () => {
             <FaFilter /> <span>filter </span>
           </button>
         </Grid2>
+        {/* ------------------------------------------------------------------------------------ */}
+        {/* ------------------------------------------------------------------------------------ */}
       </Grid2>
     </header>
   );

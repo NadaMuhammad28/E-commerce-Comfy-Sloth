@@ -3,12 +3,12 @@ import "./home.css";
 import Intro from "../components/Home/Intro";
 import NewsLetter from "../components/Home/NewsLetter";
 import React from "react";
-// import FeaturedProducts from "../components/Home/FeaturedProducts";
+import FeaturedProducts from "../components/Home/FeaturedProducts";
 const Home = () => {
   return (
     <>
       <Intro />
-      {/* <FeaturedProducts /> */}
+      <FeaturedProducts />
       <Services />
       <NewsLetter />
     </>

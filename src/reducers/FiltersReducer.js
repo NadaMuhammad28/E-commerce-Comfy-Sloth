@@ -67,7 +67,8 @@ const reducer = (state, action) => {
           b.name.localeCompare(a.name)
         );
         return { ...state, filteredProducts: tempProducts };
-      } else {
+      }
+      if (sort === "Default") {
         return state;
       }
     }

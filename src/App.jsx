@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { NavBar, Footer, SideBar } from "./components/shared/index";
 import ORderDone from "./components/stripe/OrderDone";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 import {
   Home,
   About,
@@ -12,7 +14,12 @@ import {
   Cart,
 } from "./pages/index";
 import PrivateRoute from "./pages/PrivateRoute";
+import { useEffect } from "react";
 function App() {
+  // useEffect(() => {
+  //   AOS.init({ once: true });
+  // }, []);
+
   return (
     <div className="app">
       <BrowserRouter>
