@@ -15,7 +15,9 @@ import {
   Elements,
 } from "./index";
 import { styled } from "@mui/system";
-const promise = loadStripe(import.meta.env.VITE_REACT_APP_STRIPE_PUBLIC_KEY);
+const promise = loadStripe(
+  `${import.meta.env.VITE_REACT_APP_STRIPE_PUBLIC_KEY}`
+);
 
 //form
 const CheckOutForm = ({ isFilled, setAddrErr }) => {
