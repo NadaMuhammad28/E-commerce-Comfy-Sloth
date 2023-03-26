@@ -11,7 +11,7 @@ import { useProductsContext } from "../../context/ProductsContect";
 // import "./swiperCustom.css";
 // import "swiper/swiper.min.css";
 
-const FeturedProducts = () => {
+const ProductsSlider = () => {
   const { feturedProducts: products, isProductsLoading: Loading } =
     useProductsContext();
   // return (
@@ -113,4 +113,4 @@ const FeturedProducts = () => {
   //   </section>
   // );
 };
-export default FeturedProducts;
+export default ProductsSlider;
