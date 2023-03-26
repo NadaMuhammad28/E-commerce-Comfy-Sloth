@@ -1,6 +1,6 @@
-@import "../../../node_modules/swiper/swiper.min.css";
+/* @import "../../../node_modules/swiper/swiper.min.css";
 @import "../../../node_modules/swiper/swiper.css";
-@import "../../../node_modules/swiper/swiper-element-bundle.min.css";
+@import "../../../node_modules/swiper/swiper-element-bundle.min.css"; */
 
 :root {
   --swiper-theme-color: var(--txt-clr-2);

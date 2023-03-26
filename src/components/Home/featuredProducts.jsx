@@ -7,6 +7,7 @@ import { useProductsContext } from "../../context/ProductsContect";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
 import { formatPrice } from "../../utils/helpers";
+import 'swiper/swiper-bundle.css';
 
 import "./swiperCustom.css";
 
