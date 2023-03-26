@@ -4,10 +4,10 @@ require("dotenv").config();
 const stripe = require("stripe")(
   `${process.env.VITE_REACT_APP_STRIPE_SECRET_KEY}`
 );
+console.log(process.env.VITE_REACT_APP_STRIPE_SECRET_KEY);
 exports.handler = async (event, context) => {
   if (event.body) {
     const { cart, totalPrice, shipping_fee } = JSON.parse(event.body);
-    console.log(totalPrice);
     const calculateOrderAmount = () => {
       return +shipping_fee + +totalPrice;
     };
