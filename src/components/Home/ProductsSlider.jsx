@@ -8,8 +8,8 @@ import { formatPrice } from "../../utils/helpers";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
 import "swiper/swiper-bundle.min.css";
-import "./swiperCustom.css";
 import "swiper/swiper.min.css";
+import "./swiperCustom.css";
 
 const ProductsSlider = () => {
   const { feturedProducts: products, isProductsLoading: Loading } =
