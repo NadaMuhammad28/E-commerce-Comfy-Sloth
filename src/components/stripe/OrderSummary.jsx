@@ -3,7 +3,6 @@ import { formatPrice } from "../../utils/helpers";
 import { styled } from "@mui/system";
 const OrderSummary = () => {
   const { cart, totalPrice, shipping_fee } = useCartContext();
-  console.log(cart);
   return (
     <Wrapper>
       <header>

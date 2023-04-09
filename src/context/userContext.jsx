@@ -8,7 +8,6 @@ const UserContext = ({ children }) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      console.log("authenticated");
       setMyUSer({
         name: `${user.given_name} ${user.family_name}`,
         email: user.email,
