@@ -1,9 +1,9 @@
 import ProductsList from "../components/products/productList";
 import SortProducts from "../components/products/SortProducts";
 import Grid2 from "@mui/material/Unstable_Grid2"; // Grid version 2
-import "../components/products/products.css";
 import { useFilterContext } from "../context/FilterProductsContext";
 import FiltersModal from "../components/products/FiltersModal";
+import "../components/products/products.css";
 const ProductsPage = () => {
   const { isFiltersModalOpen } = useFilterContext();
 

@@ -66,6 +66,12 @@ const Wrapper = styled("form")`
     flex-basis: 60%;
   }
 
+  .MuiSelect-outlined,
+  .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 2% !important;
+    font-size: 0.8rem !important;
+    /* color: var(--txt-clr-black) !important; */
+  }
   /*filter button*/
 
   .sort-label {
