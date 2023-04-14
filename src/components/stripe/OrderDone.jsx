@@ -4,15 +4,15 @@ import Loader from "../shared/Loade";
 
 const ORderDone = () => {
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   const timeoutId = setTimeout(() => {
-  //     navigate("/", { replace: true });
-  //   }, 3000);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      navigate("/", { replace: true });
+    }, 3000);
 
-  //   return () => {
-  //     clearTimeout(timeoutId);
-  //   };
-  // }, [navigate]);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [navigate]);
 
   return (
     <section className="sec-wrapper">
