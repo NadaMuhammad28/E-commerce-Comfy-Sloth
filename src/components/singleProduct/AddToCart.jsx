@@ -12,7 +12,7 @@ const AddtoCart = ({ product }) => {
   const [amount, setAmount] = useState(1);
   //for toast
   const notify = () =>
-    toast.success(`${amount} added to cart`, {
+    toast.success(`${amount} item added to cart`, {
       position: "top-right",
       autoClose: 4000,
       transition: Flip,
@@ -48,6 +48,8 @@ const AddtoCart = ({ product }) => {
   };
   return (
     <div className=" d-flex-col single-add-to-cart-wrapper">
+      <ToastContainer />
+
       <Colors
         colors={product.colors}
         setClrIndex={setClrIndex}
@@ -61,8 +63,8 @@ const AddtoCart = ({ product }) => {
       />
       <Link
         onClick={() => {
-          addToCart(addedProduct);
           notify();
+          addToCart(addedProduct);
         }}
         className="btn shop-btn"
         style={{ animation: "none" }}
