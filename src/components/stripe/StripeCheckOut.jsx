@@ -56,7 +56,12 @@ const CheckOutForm = ({ isFilled, setAddrErr }) => {
   ////////////////////////////////////////////////////////////////////
 
   useEffect(() => {
+    // if (window.location.pathname === "/checkout") {
+    // Only create payment intent if user is on the checkout page
+
+    // console.log("oo");
     createPaymentIntent();
+    // }
     // eslint-disable-next-line
   }, []);
 
@@ -83,7 +88,7 @@ const CheckOutForm = ({ isFilled, setAddrErr }) => {
         setProcessing(false);
         setSucceeded(true);
         clearCart();
-        navigate("/placed-order");
+        navigate("/order-confirmation");
       }
     } else {
       setProcessing(false);

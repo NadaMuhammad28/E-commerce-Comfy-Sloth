@@ -40,7 +40,7 @@ function App() {
               </PrivateRoute>
             }
           />
-          <Route path="/placed-order" element={<ORderDone />} />
+          <Route path="/order-confirmation" element={<ORderDone />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />

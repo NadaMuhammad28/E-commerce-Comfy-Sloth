@@ -64,7 +64,8 @@ const AddtoCart = ({ product }) => {
           addToCart(addedProduct);
           notify();
         }}
-        className="btn single-adtocart-btn"
+        className="btn shop-btn"
+        style={{ animation: "none" }}
       >
         Add to cart
       </Link>

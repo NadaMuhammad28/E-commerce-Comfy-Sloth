@@ -231,7 +231,7 @@ const Wrapper = styled("section")`
     /* margin-bottom: 2%; */
   }
   .single-product-quantity div {
-    padding: 1% 2%;
+    padding: 0.5rem 0.6rem;
     border-radius: 5px;
     border: 1px solid #e2e2e2;
   }
@@ -243,7 +243,7 @@ const Wrapper = styled("section")`
     vertical-align: middle;
   }
   .single-adtocart-btn {
-    background-color: var(--txt-clr-2);
+    // background-color: var(--txt-clr-2);
     /* margin: 2% 0; */
   }
   .single-add-to-cart-wrapper {

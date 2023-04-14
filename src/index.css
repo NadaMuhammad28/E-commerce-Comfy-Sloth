@@ -19,7 +19,7 @@
   --txt-clr-1: #102a42;
   --txt-clr-2: #ab7a5f;
   --txt-clr-2-light: #ab7a5f;
-  --txt-clr-2-dark: #a37156;
+  --txt-clr-2-dark: #8c4f3e;
   --txt-clr-3: #eaded7;
   --txt-clr-4: #617d98;
   --txt-clr-black: #222;
@@ -66,7 +66,8 @@ li a {
 }
 a,
 a:visited {
-  color: var(--txt-clr-1);
+  /* color: var(--txt-clr-1); */
+  color: inherit;
 
   text-decoration: none;
 }
@@ -449,7 +450,7 @@ h3 > .sec-subtitle {
 }
 .loader {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 
 .loading {

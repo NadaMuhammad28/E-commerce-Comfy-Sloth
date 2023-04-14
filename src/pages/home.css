@@ -103,12 +103,13 @@
 .shop-btn {
   color: #fff !important ;
   background-color: var(--txt-clr-2) !important;
-} /*
+}
+
 .shop-btn:hover,
 .shop-btn:active {
-  background-color: #e7ac8c !important;
-  color: #f1f1bd !important ;
-}*/
+  background-color: var(--txt-clr-2-dark) !important;
+  border-color: var(--txt-clr-2-dark);
+}
 .intro-title-wrapper p {
   color: #fbfbfb !important ;
 }
