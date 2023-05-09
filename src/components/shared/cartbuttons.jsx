@@ -29,7 +29,8 @@ const NavBtns = () => {
         >
           <FaUser />
           <span className="nav-auth-btn-log">
-            {user.given_name && user.given_name}
+            {(user.given_name && user.given_name) ||
+              (user.nickname && user.nickname)}
           </span>
         </button>
       ) : (
