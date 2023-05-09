@@ -201,11 +201,7 @@ const BillingAddress = ({ setIsfilled }) => {
             className="del-input"
           />
         </Grid2>
-        <div>
-          {/* <button className="" disabled={isFilled}>
-      k
-    </button> */}
-        </div>
+        <div></div>
       </Grid2>
     </Wrapper>
   );

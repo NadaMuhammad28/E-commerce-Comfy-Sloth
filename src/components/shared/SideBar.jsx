@@ -31,7 +31,7 @@ const SideBar = () => {
           ))}
         </ul>
         <AUTHCART className="d-flex">
-          <Link to="cart" className="nav-cart-btn">
+          <Link to="cart" className="nav-cart-btn" onClick={closebar}>
             <FaShoppingCart /> <span>{totalAmount}</span>
           </Link>
           {isAuthenticated ? (

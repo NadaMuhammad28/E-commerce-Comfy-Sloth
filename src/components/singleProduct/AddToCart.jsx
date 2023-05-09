@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 const AddtoCart = ({ product }) => {
   const { addToCart } = useCartContext();
   const [clrIndex, setClrIndex] = useState(0);
@@ -63,7 +62,7 @@ const AddtoCart = ({ product }) => {
       />
       <Link
         onClick={() => {
-          notify();
+          if (amount < product.stock) notify();
           addToCart(addedProduct);
         }}
         className="btn shop-btn"

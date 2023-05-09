@@ -24,7 +24,7 @@ const CartContext = ({ children }) => {
     cart: getFromLocalStorage("cart"),
     totalAmount: 0,
     totalPrice: 0,
-    shipping_fee: 2,
+    shipping_fee: 5,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -34,6 +34,7 @@ const CartContext = ({ children }) => {
   }, [state.cart]);
   const addToCart = (product) => {
     dispatch({ type: ADD_TO_CART, payload: product });
+    // dispatch({ type: "INCREMENT_SHIPPING", payload: product.shipping });
   };
 
   const toggleAmount = (idColor, operation) => {

@@ -1,8 +1,11 @@
-import Home from "./HomePage";
-import About from "./About";
-import Products from "./Products";
-import SingleProduct from "./SingleProduct";
-import Cart from "./Cart";
-import CheckOut from "./CheckOut";
-import Error from "./ErrorPage";
+import { lazy } from "react";
+
+const Home = lazy(() => import("./HomePage"));
+const About = lazy(() => import("./About"));
+const Products = lazy(() => import("./Products"));
+const SingleProduct = lazy(() => import("./SingleProduct"));
+const Cart = lazy(() => import("./Cart"));
+const CheckOut = lazy(() => import("./CheckOut"));
+const Error = lazy(() => import("./ErrorPage"));
+
 export { Home, About, Error, Cart, Products, SingleProduct, CheckOut };

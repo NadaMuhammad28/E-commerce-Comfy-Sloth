@@ -8,18 +8,21 @@ import { writeToLocalStorage } from "../context/CartContext";
 export const reducer = (state, action) => {
   switch (action.type) {
     case INCREASE_CART_COUNT: {
-      let { updatedTotalAmount, updatedTotalPrice } = state.cart.reduce(
-        (p, c) => {
-          p.updatedTotalAmount = p.updatedTotalAmount + c.amount;
-          p.updatedTotalPrice = p.updatedTotalPrice + c.amount * c.price;
-          return p;
-        },
-        { updatedTotalAmount: 0, updatedTotalPrice: 0 }
-      );
+      let { updatedTotalAmount, updatedTotalPrice, updatedShipping } =
+        state.cart.reduce(
+          (p, c) => {
+            p.updatedTotalAmount = p.updatedTotalAmount + c.amount;
+            p.updatedTotalPrice = p.updatedTotalPrice + c.amount * c.price;
+            p.updatedShipping = p.updatedShipping + c.shipping ? 0 : 3;
+            return p;
+          },
+          { updatedTotalAmount: 0, updatedTotalPrice: 0, updatedShipping: 2 }
+        );
       return {
         ...state,
         totalAmount: updatedTotalAmount,
         totalPrice: updatedTotalPrice,
+        shipping_fee: updatedShipping,
       };
     }
     case ADD_TO_CART: {
